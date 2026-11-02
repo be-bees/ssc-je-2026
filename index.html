@@ -1,0 +1,1012 @@
+<title>SSC JE 48-Hour Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a field handbook. Sticky section rail on top, one reading column, formula "plates" in mono. */
+:root{
+  --bg:#eef1f3; --surface:#ffffff; --ink:#15212b; --muted:#566573; --line:#d3dae0;
+  --accent:#1d5d8c; --accent-soft:#e1ecf5;
+  --must:#1f7a4d; --must-soft:#e2f2e9; --maybe:#a8650b; --maybe-soft:#fbf0dd; --skip:#6b7680; --skip-soft:#eceff2;
+  --bad:#b3362c; --bad-soft:#f8e3e1;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",Consolas,"Courier New",monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f161c; --surface:#17212a; --ink:#e3e9ee; --muted:#9aa8b4; --line:#2a3743;
+  --accent:#6fb3e6; --accent-soft:#1a3044;
+  --must:#5cc48f; --must-soft:#173326; --maybe:#e0a54a; --maybe-soft:#3a2c14; --skip:#9aa5ae; --skip-soft:#232d36;
+  --bad:#f08077; --bad-soft:#3d1f1d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f161c; --surface:#17212a; --ink:#e3e9ee; --muted:#9aa8b4; --line:#2a3743;
+  --accent:#6fb3e6; --accent-soft:#1a3044;
+  --must:#5cc48f; --must-soft:#173326; --maybe:#e0a54a; --maybe-soft:#3a2c14; --skip:#9aa5ae; --skip-soft:#232d36;
+  --bad:#f08077; --bad-soft:#3d1f1d; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+header.top{padding-block:28px 12px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.1;margin:0}
+h1{font-size:clamp(34px,8vw,48px);font-weight:700;letter-spacing:.01em}
+h2{font-size:30px;font-weight:700;margin-bottom:6px}
+h3{font-size:22px;font-weight:600}
+p{margin:0}
+.lede{color:var(--muted);max-width:62ch;margin-top:8px}
+nav.rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+nav.rail .inner{max-width:760px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));scrollbar-width:none}
+nav.rail a{flex:0 0 auto;text-decoration:none;color:var(--ink);font-family:var(--f-display);font-weight:600;font-size:16px;letter-spacing:.03em;padding:5px 11px;border:1px solid var(--line);border-radius:999px;background:var(--bg)}
+nav.rail a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section{padding-block:30px 6px;scroll-margin-top:64px;display:flex;flex-direction:column;gap:14px}
+.sec-no{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.08em}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:10px 12px;border-radius:0 8px 8px 0}
+.note.warn{border-color:var(--maybe);background:var(--maybe-soft)}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;vertical-align:middle}
+.t-ver{background:var(--must-soft);color:var(--must)}
+.t-rep{background:var(--maybe-soft);color:var(--maybe)}
+.t-est{background:var(--skip-soft);color:var(--skip)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-display);font-size:16px;letter-spacing:.03em;font-weight:600;background:var(--bg)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+ul,ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.cat{display:flex;flex-direction:column;gap:8px}
+.cat-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:.05em;padding:3px 10px;border-radius:999px}
+.p-a{background:var(--must-soft);color:var(--must)}
+.p-b{background:var(--maybe-soft);color:var(--maybe)}
+.p-c{background:var(--skip-soft);color:var(--skip)}
+.prio{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:8px 0;border-top:1px solid var(--line)}
+.prio:first-of-type{border-top:none}
+.prio b{font-weight:700}
+.prio .why{grid-column:1/-1;color:var(--muted);font-size:14.5px}
+.prio .hrs{font-family:var(--f-mono);font-size:13px;color:var(--muted);white-space:nowrap}
+/* timetable */
+.day{display:flex;flex-direction:column;gap:0}
+.day h3{margin-bottom:8px}
+.blk{display:grid;grid-template-columns:92px 1fr;gap:4px 12px;padding:10px 0;border-top:1px solid var(--line)}
+.blk .time{font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted);padding-top:2px}
+.blk .what{display:flex;flex-direction:column;gap:3px;min-width:0}
+.blk .subj{font-weight:700}
+.blk .meta{font-size:14.5px;color:var(--muted)}
+.blk .meta b{color:var(--ink);font-weight:600}
+.blk.brk .subj{color:var(--muted);font-weight:600}
+.blk label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.blk input[type=checkbox]{margin-top:4px;width:18px;height:18px;accent-color:var(--must);flex:0 0 auto}
+.blk.done .subj{text-decoration:line-through;color:var(--muted)}
+/* details */
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+details>summary{cursor:pointer;list-style:none;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--f-display);font-size:21px;font-weight:600}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"+";font-family:var(--f-mono);font-size:20px;color:var(--muted)}
+details[open]>summary::after{content:"−"}
+details>summary .pill{font-size:13px}
+.dbody{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.k{font-family:var(--f-display);font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.ex{background:var(--bg);border-radius:8px;padding:10px 12px;font-size:15px}
+.ex .q{font-weight:600}
+/* formula plates */
+.f{border-top:1px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.f:first-child{border-top:none;padding-top:0}
+.eq{font-family:var(--f-mono);font-size:15px;font-weight:600;background:var(--accent-soft);color:var(--ink);padding:6px 10px;border-radius:6px;overflow-x:auto;white-space:nowrap}
+.f p{font-size:14.5px}
+.f p b{font-weight:700}
+.trap{color:var(--bad)}
+.trap b{color:var(--bad)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 18px}
+.facts li{font-size:15px}
+/* quiz */
+.quiz{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+.last{font-family:var(--f-mono);font-size:12.5px;color:var(--muted)}
+.qitem{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.qitem:first-of-type{border-top:none;padding-top:0}
+.qtext{font-weight:600}
+.qtext .qn{font-family:var(--f-mono);color:var(--muted);font-weight:400;margin-right:4px}
+.opts{display:flex;flex-direction:column;gap:4px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--surface)}
+.opt input{margin-top:4px;accent-color:var(--accent);flex:0 0 auto}
+.opt.right{border-color:var(--must);background:var(--must-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.expl{font-size:14.5px;color:var(--muted)}
+.expl b{color:var(--ink)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button{font-family:var(--f-display);font-size:17px;font-weight:600;letter-spacing:.03em;padding:9px 18px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:var(--surface);cursor:pointer}
+button.ghost{background:transparent;color:var(--accent)}
+.result{border:2px solid var(--accent);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.score{font-family:var(--f-display);font-size:34px;font-weight:700;font-variant-numeric:tabular-nums}
+.small{font-size:14px;color:var(--muted)}
+.check li{list-style:none;margin-left:-20px;display:flex;gap:8px}
+.check li::before{content:"☐";font-family:var(--f-mono);color:var(--accent)}
+.res{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-top:1px solid var(--line)}
+.res:first-child{border-top:none}
+.res .rn{font-weight:700}
+.res .rm{font-size:14.5px;color:var(--muted)}
+footer{padding-block:24px;color:var(--muted);font-size:14px}
+@media (max-width:420px){.blk{grid-template-columns:76px 1fr}}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Agathiyan Venkatraman · ME · Paper I · 4 Nov 2026 · 5–7 PM shift</div>
+  <h1>SSC JE 48-Hour Plan</h1>
+  <p class="lede">Crash revision for SSC JE 2026 Paper I (Mechanical). Use it in this order: pattern, timetable, then each study block's topic card and formula sheet. The four tests at the bottom score themselves.</p>
+</header>
+</div>
+
+<nav class="rail" aria-label="Sections"><div class="inner">
+  <a href="#pattern">Pattern</a><a href="#trends">PYQ trends</a><a href="#priority">Priority</a><a href="#timetable">Timetable</a><a href="#topics">Topic cards</a><a href="#formulas">Formulas</a><a href="#reasoning">Reasoning</a><a href="#ga">GA</a><a href="#tests">Tests</a><a href="#resources">Resources</a><a href="#strategy">Exam strategy</a><a href="#checklist">Checklist</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- 1 PATTERN -->
+<section id="pattern">
+  <div class="sec-no">01 · PAPER I PATTERN</div>
+  <h2>SSC JE 2026 Paper I</h2>
+  <p class="small"><span class="tag t-ver">Confirmed</span> = the same in the 2026 notice coverage and several sources. <span class="tag t-rep">Reported</span> = from coaching sites; I could not open the official PDF. <span class="tag t-est">Estimate</span> = my judgement.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Part</th><th class="num">Questions</th><th class="num">Marks</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>General Intelligence &amp; Reasoning</td><td class="num">50</td><td class="num">50</td><td>Easy to moderate</td></tr>
+      <tr><td>General Awareness</td><td class="num">50</td><td class="num">50</td><td>Science-heavy static GK + current affairs</td></tr>
+      <tr><td>General Engineering (Mechanical)</td><td class="num">100</td><td class="num">100</td><td>Half the paper</td></tr>
+      <tr><th>Total</th><th class="num">200</th><th class="num">200</th><th>2 hours (120 min), CBT, English/Hindi</th></tr>
+    </tbody></table></div>
+  <div class="panel">
+    <ul>
+      <li><span class="tag t-ver">Confirmed</span> <b>Marking:</b> +1 for correct, <b>−0.25</b> for wrong, 0 for unattempted.</li>
+      <li><span class="tag t-ver">Confirmed</span> <b>Dates:</b> Paper I runs 2–6 Nov 2026. Shifts are 9–11 AM, 1–3 PM and 5–7 PM. Your admit card shows your shift. Paper II is expected in December 2026.</li>
+      <li><span class="tag t-rep">Reported</span> <b>Paper I now only qualifies you.</b> From 2026, Paper I marks are reported to not count in the final merit list. They decide who is shortlisted for Paper II (100 Q, 300 marks, −1 per wrong). Final merit uses Paper II only.</li>
+      <li><span class="tag t-rep">Reported</span> <b>Minimum qualifying marks:</b> UR 30%, OBC/EWS 25%, others 20%. That is 60/50/40 out of 200.</li>
+      <li><span class="tag t-est">Estimate</span> <b>What this means for you:</b> crossing 30% is not enough. Paper II seats go category-wise in merit order of Paper I (normalized) marks, so the real shortlisting cut-off is well above the minimum. Coaching estimates of "good attempts" for the 2025 Mechanical paper were about 142–160 out of 200. Aim for <b>120+ net marks</b>.</li>
+      <li><b>Normalization:</b> scores are normalized across shifts. Do not worry about which shift you got.</li>
+    </ul>
+  </div>
+  <div class="note warn">Your exam: <b>4 Nov, 5–7 PM shift</b>. The timetable puts the full mock on 3 Nov at 5–7 PM, so you practise at the same time of day as the real exam. The reporting time printed on your admit card decides when you must leave. Check the official notice on <a href="https://ssc.gov.in" target="_blank" rel="noopener">ssc.gov.in</a> for exact qualifying rules.</div>
+</section>
+
+<!-- 2 TRENDS -->
+<section id="trends">
+  <div class="sec-no">02 · PREVIOUS-YEAR ANALYSIS</div>
+  <h2>What past papers show</h2>
+  <div class="note warn"><b>What I could not do:</b> SSC does not publish topic-wise counts, and in this session I could not open and count 10–15 years of original papers myself. Below, figures from coaching sites are labelled as such. Treat every count as a rough guide, not a fact.</div>
+  <div class="panel">
+    <h3>Mechanical: coaching-site counts (2022–2024)</h3>
+    <p class="small"><span class="tag t-rep">Reported</span> Testbook's "previous year trends" table. It does not name the papers or the method, and the rows add up to fewer than 100. Use it for the ranking, not the exact numbers.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Subject</th><th class="num">2024</th><th class="num">2023</th><th class="num">2022</th></tr></thead>
+      <tbody>
+        <tr><td>Production / Manufacturing</td><td class="num">15</td><td class="num">13</td><td class="num">14</td></tr>
+        <tr><td>Thermal Engg (Thermo, boilers, turbines)</td><td class="num">15</td><td class="num">14</td><td class="num">13</td></tr>
+        <tr><td>Fluid Mechanics &amp; Machinery</td><td class="num">13</td><td class="num">11</td><td class="num">12</td></tr>
+        <tr><td>Strength of Materials</td><td class="num">12</td><td class="num">10</td><td class="num">12</td></tr>
+        <tr><td>Theory of Machines &amp; Design</td><td class="num">10</td><td class="num">12</td><td class="num">11</td></tr>
+        <tr><td>Heat Transfer</td><td class="num">7</td><td class="num">6</td><td class="num">6</td></tr>
+        <tr><td>Refrigeration &amp; AC</td><td class="num">6</td><td class="num">5</td><td class="num">7</td></tr>
+        <tr><td>IC Engines</td><td class="num">5</td><td class="num">4</td><td class="num">5</td></tr>
+        <tr><td>Industrial Engg &amp; Management</td><td class="num">3</td><td class="num">3</td><td class="num">2</td></tr>
+      </tbody></table></div>
+    <p class="small">The same site gives Engineering Mechanics 8–10 and Materials/Metrology 4–6 per paper, outside this table. An older analysis from 2017 put Fluid Mechanics &amp; Machinery highest, at about 30 of 100. That was before the paper broadened into production and design.</p>
+  </div>
+  <div class="panel">
+    <h3>What the sources agree on</h3>
+    <ul>
+      <li><span class="tag t-rep">Reported</span> The 2025 Mechanical Paper I (3–4 Dec 2025) drew from Theory of Machines, Thermodynamics, Machine Design, SOM, Fluid Mechanics, Heat Transfer, Industrial Engg and Production. It was rated moderate overall, with some lengthy numericals.</li>
+      <li><span class="tag t-est">Estimate</span> About 60–70% of Mechanical questions are <b>one-line theory or fact</b> (which turbine, which flame, which crystal structure). About 30–40% are numericals, and most need one formula.</li>
+      <li><span class="tag t-est">Estimate</span> The most repeated formula areas are cycle efficiencies (Carnot, Otto), elastic constants, beam BM/deflection standard cases, Bernoulli/continuity, Reynolds number, Taylor tool life, belt tension ratio and COP.</li>
+      <li><span class="tag t-est">Estimate</span> Lengthy items to skip on a first pass: gear-train numericals, governor force analysis, reheat/regenerative Rankine with steam tables, heat-exchanger design, column design with eccentric loads.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>Reasoning and GA patterns</h3>
+    <ul>
+      <li><span class="tag t-est">Estimate</span> <b>Reasoning</b> (2025 good attempts reported at 40–44/50): analogy, odd-one-out, number and letter series, coding-decoding, mathematical operations, blood relations, direction, ranking, Venn diagrams, syllogism, missing number, mirror/water image, paper folding, embedded figures, dice, figure counting, dictionary order.</li>
+      <li><span class="tag t-est">Estimate</span> <b>GA</b> (2025 good attempts reported at 32–38/50): the largest block is general science (physics, chemistry, biology). Then polity (articles, amendments), modern history, Indian geography, economy basics, and a handful of current affairs. The 2026 notice coverage says GA now names history and polity explicitly.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>How the pattern has changed</h3>
+    <ul>
+      <li>For many years: Paper I was 200 Q objective. Paper II was a conventional written paper (300 marks). Final merit was Paper I + Paper II.</li>
+      <li>From about 2023: Paper II became objective CBT (100 Q × 3 marks, −1 per wrong).</li>
+      <li><span class="tag t-rep">Reported</span> 2026: Paper I becomes qualifying only. JE Telecom and IMD Scientific Assistant posts were added. There are about 1,699 tentative vacancies.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3 PRIORITY -->
+<section id="priority">
+  <div class="sec-no">03 · MECHANICAL PRIORITY</div>
+  <h2>What to study, what to skip</h2>
+  <p class="small">Ranked by how often the subject appears and how fast you can relearn it. Hours are revision time, including practice.</p>
+  <div class="panel cat">
+    <div class="cat-h"><span class="pill p-a">A · MUST REVISE</span><span class="small">about 70% of Mechanical marks</span></div>
+    <div class="prio"><b>Thermodynamics + IC Engines</b><span class="hrs">1.5 h</span><span class="why">Laws, processes, Carnot/Otto/Diesel efficiency, steam basics, SI vs CI facts. Mostly one-line formulas.</span></div>
+    <div class="prio"><b>Fluid Mechanics</b><span class="hrs">1.2 h</span><span class="why">Properties, pressure, Bernoulli, continuity, venturi/pitot, Reynolds number, pipe losses.</span></div>
+    <div class="prio"><b>Hydraulic Machines</b><span class="hrs">0.6 h</span><span class="why">Pelton/Francis/Kaplan, specific speed, pump facts. Mostly theory questions.</span></div>
+    <div class="prio"><b>Strength of Materials</b><span class="hrs">1.2 h</span><span class="why">Elastic constants, thermal stress, standard BM and deflection cases, torsion, Euler column, thin cylinders.</span></div>
+    <div class="prio"><b>Production / Manufacturing</b><span class="hrs">1.2 h</span><span class="why">Casting, welding, machining, Taylor's law, grinding, non-traditional machining, forming. Highest frequency; nearly all facts.</span></div>
+    <div class="prio"><b>Engineering Materials</b><span class="hrs">0.5 h</span><span class="why">Iron-carbon diagram, classification of steels, heat treatment, crystal structures, alloys.</span></div>
+    <div class="prio"><b>Engineering Mechanics</b><span class="hrs">0.4 h</span><span class="why">Friction, projectile, centroid and moment of inertia of standard shapes.</span></div>
+  </div>
+  <div class="panel cat">
+    <div class="cat-h"><span class="pill p-b">B · IF TIME PERMITS</span><span class="small">quick-fact revision only</span></div>
+    <div class="prio"><b>Theory of Machines</b><span class="hrs">0.6 h</span><span class="why">Mechanisms and inversions, belt ratio, gear basics, governors, flywheel, natural frequency.</span></div>
+    <div class="prio"><b>Boilers, Nozzles, Steam Turbines, Compressors</b><span class="hrs">0.5 h</span><span class="why">Mountings vs accessories, boiler types, critical pressure ratio, impulse vs reaction, compressor facts.</span></div>
+    <div class="prio"><b>Refrigeration &amp; AC</b><span class="hrs">0.3 h</span><span class="why">COP, 1 TR, VCR cycle parts, refrigerant numbering.</span></div>
+    <div class="prio"><b>Heat Transfer</b><span class="hrs">0.3 h</span><span class="why">Fourier, Stefan-Boltzmann, Wien, critical radius, dimensionless numbers, LMTD idea.</span></div>
+    <div class="prio"><b>Machine Design</b><span class="hrs">0.3 h</span><span class="why">Theories of failure, factor of safety, equivalent torque, Soderberg/Goodman, joints and keys.</span></div>
+    <div class="prio"><b>Metrology + Industrial Engg</b><span class="hrs">0.3 h</span><span class="why">Vernier least count, fits, EOQ, PERT time, control charts.</span></div>
+  </div>
+  <div class="panel cat">
+    <div class="cat-h"><span class="pill p-c">C · SKIP FOR NOW</span><span class="small">attempt only if the question is one-line</span></div>
+    <ul>
+      <li>Power plant engineering details (load curves, nuclear reactor design)</li>
+      <li>Gyroscope, balancing of reciprocating masses, damped/forced vibration derivations</li>
+      <li>Gear tooth design, spring and bearing design calculations</li>
+      <li>Psychrometric chart calculations, NTU method, boundary-layer theory, compressible flow</li>
+      <li>Reheat/regenerative Rankine with steam tables, CPM network crashing</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 TIMETABLE -->
+<section id="timetable">
+  <div class="sec-no">04 · 48-HOUR TIMETABLE</div>
+  <h2>Hour-by-hour plan</h2>
+  <div class="note">Assumes you start at <b>12:00 noon on 2 Nov</b>. If you start later, shift every block; do not drop the 3 Nov mock or the sleep. Tick blocks as you finish them (saved on this phone only).</div>
+
+  <div class="panel day">
+    <h3>Sunday 2 Nov · about 8 h of study</h3>
+    <div class="blk"><div class="time">12:00–12:20</div><div class="what"><label><input type="checkbox" id="tt-1"><span class="subj">Set up</span></label><div class="meta">Download your admit card from <a href="https://ssc.gov.in" target="_blank" rel="noopener">ssc.gov.in</a>. Note your shift, reporting time and centre. Save this page to your phone's home screen. Keep one notebook as your <b>error log</b>.</div></div></div>
+    <div class="blk"><div class="time">12:20–14:20</div><div class="what"><label><input type="checkbox" id="tt-2"><span class="subj">ME-1 · Thermodynamics + IC engines + RAC basics</span></label><div class="meta"><b>Read:</b> topic cards "Thermodynamics" and "IC Engines", then the formula sheets for Thermo, IC and RAC. <b>Practise:</b> Test 1 Q1–10. Then 20 questions from IndiaBIX Thermodynamics. <b>Revise:</b> close the page and write 10 formulas from memory.</div></div></div>
+    <div class="blk brk"><div class="time">14:20–15:00</div><div class="what"><span class="subj">Lunch + 10-minute walk</span></div></div>
+    <div class="blk"><div class="time">15:00–17:00</div><div class="what"><label><input type="checkbox" id="tt-3"><span class="subj">ME-2 · Fluid mechanics + hydraulic machines</span></label><div class="meta"><b>Read:</b> topic cards "Fluid Mechanics" and "Hydraulic Machines", plus the fluids formula sheet. <b>Practise:</b> finish Test 1 and check your score. Then 15 questions from IndiaBIX Hydraulic Machines. <b>Revise:</b> log every wrong answer.</div></div></div>
+    <div class="blk brk"><div class="time">17:00–17:15</div><div class="what"><span class="subj">Break, away from the screen</span></div></div>
+    <div class="blk"><div class="time">17:15–19:00</div><div class="what"><label><input type="checkbox" id="tt-4"><span class="subj">ME-3 · SOM + Engineering mechanics</span></label><div class="meta"><b>Read:</b> topic cards "Strength of Materials" and "Engineering Mechanics", plus their formula sheets. <b>Practise:</b> Test 2 Q1–10, then 15 questions from IndiaBIX SOM. <b>Revise:</b> redraw the 4 standard beam cases from memory.</div></div></div>
+    <div class="blk brk"><div class="time">19:00–19:45</div><div class="what"><span class="subj">Dinner</span></div></div>
+    <div class="blk"><div class="time">19:45–20:45</div><div class="what"><label><input type="checkbox" id="tt-5"><span class="subj">Reasoning shortcuts</span></label><div class="meta"><b>Read:</b> the reasoning sheet (series, coding, ranking, direction, blood relation, clock, calendar). <b>Practise:</b> Test 3, with 15 minutes on a timer.</div></div></div>
+    <div class="blk"><div class="time">20:45–21:30</div><div class="what"><label><input type="checkbox" id="tt-6"><span class="subj">GA · General science</span></label><div class="meta"><b>Read:</b> the Physics, Chemistry and Biology lists in the GA sheet. Read once, then cover the answers and quiz yourself.</div></div></div>
+    <div class="blk"><div class="time">21:30–22:00</div><div class="what"><label><input type="checkbox" id="tt-7"><span class="subj">Error log</span></label><div class="meta">For every wrong answer today, write one line: the concept and the correct formula or fact.</div></div></div>
+    <div class="blk brk"><div class="time">22:30</div><div class="what"><span class="subj">Sleep (7.5 hours). No phone in bed.</span></div></div>
+  </div>
+
+  <div class="panel day">
+    <h3>Monday 3 Nov · about 11 h of study</h3>
+    <div class="blk"><div class="time">06:30–07:00</div><div class="what"><label><input type="checkbox" id="tt-8"><span class="subj">Recall test</span></label><div class="meta">On blank paper, write all of Sunday's Category A formulas from memory. Check them against the sheet and mark the misses.</div></div></div>
+    <div class="blk"><div class="time">07:00–09:00</div><div class="what"><label><input type="checkbox" id="tt-9"><span class="subj">ME-4 · Production + Materials</span></label><div class="meta"><b>Read:</b> topic cards "Production" and "Engineering Materials", plus their formula sheets. <b>Practise:</b> finish Test 2 and check your score. Then 20 questions from IndiaBIX Production Engineering.</div></div></div>
+    <div class="blk brk"><div class="time">09:00–09:30</div><div class="what"><span class="subj">Breakfast</span></div></div>
+    <div class="blk"><div class="time">09:30–11:00</div><div class="what"><label><input type="checkbox" id="tt-12"><span class="subj">ME-5 · Category B quick facts</span></label><div class="meta"><b>Read:</b> the Category B cards (ToM, boilers/turbines, RAC, heat transfer, machine design, metrology/IE) and their formula sheets. <b>Practise:</b> 15 questions from IndiaBIX Theory of Machines.</div></div></div>
+    <div class="blk brk"><div class="time">11:00–11:15</div><div class="what"><span class="subj">Break</span></div></div>
+    <div class="blk"><div class="time">11:15–12:15</div><div class="what"><label><input type="checkbox" id="tt-13"><span class="subj">GA · Polity, history, geography, economy</span></label><div class="meta"><b>Read:</b> the rest of the GA sheet. <b>Practise:</b> Test 4 (20 Q, 10 minutes).</div></div></div>
+    <div class="blk brk"><div class="time">12:15–13:00</div><div class="what"><span class="subj">Lunch</span></div></div>
+    <div class="blk"><div class="time">13:00–13:45</div><div class="what"><label><input type="checkbox" id="tt-14"><span class="subj">Reasoning set 2</span></label><div class="meta">Redo the questions you got wrong in Test 3. Then do 25 questions of series and coding from IndiaBIX Verbal Reasoning in 20 minutes.</div></div></div>
+    <div class="blk"><div class="time">13:45–15:15</div><div class="what"><label><input type="checkbox" id="tt-15"><span class="subj">PYQ · Mechanical section</span></label><div class="meta">Take one past paper's Mechanical part (Testbook or PW PDF). Do 50 questions in 40 minutes, then check them and log every miss.</div></div></div>
+    <div class="blk brk"><div class="time">15:15–15:30</div><div class="what"><span class="subj">Break</span></div></div>
+    <div class="blk"><div class="time">15:30–16:30</div><div class="what"><label><input type="checkbox" id="tt-16"><span class="subj">Error revision</span></label><div class="meta">Retake Tests 1–4 here. Re-read the whole error log.</div></div></div>
+    <div class="blk brk"><div class="time">16:30–17:00</div><div class="what"><span class="subj">Light snack. Set up a quiet place, a stopwatch and rough paper.</span></div></div>
+    <div class="blk"><div class="time">17:00–19:00</div><div class="what"><label><input type="checkbox" id="tt-10"><span class="subj">FULL MOCK · 200 Q · timed</span></label><div class="meta">This is the exact clock time of your exam shift. Use the Toppersexam free Paper-I mock or the Adda247 free PYQ mock. If neither works, use a full past paper PDF from Testbook (Mechanical, Dec 2025) with a stopwatch. Use the attempt order from section 11.</div></div></div>
+    <div class="blk brk"><div class="time">19:00–19:45</div><div class="what"><span class="subj">Dinner + walk</span></div></div>
+    <div class="blk"><div class="time">19:45–20:45</div><div class="what"><label><input type="checkbox" id="tt-11"><span class="subj">Mock analysis</span></label><div class="meta">Label each wrong answer as <b>C</b> (concept gap), <b>S</b> (silly mistake) or <b>G</b> (bad guess). Write the C topics on a list for tomorrow morning. Count your G's: if more than 8, guess less.</div></div></div>
+    <div class="blk"><div class="time">20:45–21:30</div><div class="what"><label><input type="checkbox" id="tt-17"><span class="subj">Formula sheet, final pass</span></label><div class="meta">Category A first, then B. Read only the red trap lines a second time.</div></div></div>
+    <div class="blk"><div class="time">21:30–22:00</div><div class="what"><label><input type="checkbox" id="tt-18"><span class="subj">Pack and check</span></label><div class="meta">Go through the exam-day checklist, pack your bag and check the route, travel time and reporting time.</div></div></div>
+    <div class="blk brk"><div class="time">22:30</div><div class="what"><span class="subj">Sleep (8 hours). Nothing new after 21:30.</span></div></div>
+  </div>
+
+  <div class="panel day">
+    <h3>Tuesday 4 Nov · exam at 5 PM · about 5 h of study</h3>
+    <div class="blk"><div class="time">07:30–09:30</div><div class="what"><label><input type="checkbox" id="tt-19"><span class="subj">Second timed practice · Mechanical only</span></label><div class="meta">Use the Mechanical part of a different past paper (PW or AglaSem PDF). Do 100 questions in 60 minutes, then check them. This tests your first-pass speed for the exam.</div></div></div>
+    <div class="blk brk"><div class="time">09:30–10:00</div><div class="what"><span class="subj">Breakfast</span></div></div>
+    <div class="blk"><div class="time">10:00–11:30</div><div class="what"><label><input type="checkbox" id="tt-20"><span class="subj">Fix weak topics only</span></label><div class="meta">Take last night's list of C topics and this morning's misses. Re-read only those topic cards and formula entries. Do not open any new topic.</div></div></div>
+    <div class="blk"><div class="time">11:30–12:15</div><div class="what"><label><input type="checkbox" id="tt-21"><span class="subj">Reasoning + GA touch-up</span></label><div class="meta">Do 15 questions of your weakest reasoning type. Read the Physics, Chemistry and Biology lists once.</div></div></div>
+    <div class="blk brk"><div class="time">12:15–13:00</div><div class="what"><span class="subj">Lunch, then a 20-minute rest</span></div></div>
+    <div class="blk"><div class="time">13:00–13:45</div><div class="what"><label><input type="checkbox" id="tt-22"><span class="subj">Last look: trap lines + error log</span></label><div class="meta">Read only the red trap lines and your error log. This is your last study block.</div></div></div>
+    <div class="blk brk"><div class="time">13:45</div><div class="what"><span class="subj">Stop studying. Rest.</span><div class="meta">Have a light snack about 2 hours before the exam. Leave early enough to arrive before the reporting time on your admit card, with a margin for traffic. The exam ends at 7 PM, so plan your ride home.</div></div></div>
+  </div>
+</section>
+
+<!-- 6 TOPIC CARDS -->
+<section id="topics">
+  <div class="sec-no">05 · TOPIC CARDS</div>
+  <h2>Topic cards</h2>
+  <p class="small">Open the card for the block you are on. Practice questions here are written in the style of past papers. They are not claimed to be actual past-paper questions; the real papers are linked under Resources.</p>
+
+  <details><summary>Thermodynamics <span class="pill p-a">A</span></summary><div class="dbody">
+    <p class="k">Subtopics</p><p>Laws of thermodynamics · processes (isobaric, isochoric, isothermal, adiabatic, polytropic) · Carnot cycle · entropy · pure substance and steam · Rankine cycle · Brayton cycle</p>
+    <p class="k">Concepts in plain English</p>
+    <ul>
+      <li><b>Zeroth law</b> is the basis of temperature measurement. <b>First law</b> says energy is conserved: Q = ΔU + W (heat in = rise in internal energy + work out).</li>
+      <li><b>Second law:</b> Kelvin-Planck says no engine converts all heat into work. Clausius says heat does not flow from cold to hot on its own. A machine that breaks it is a PMM-2.</li>
+      <li><b>Carnot</b> is the most efficient engine between two temperatures. Its efficiency depends only on those temperatures, in <b>Kelvin</b>.</li>
+      <li><b>Entropy</b> is a property. It rises in every real (irreversible) process. A reversible adiabatic process is isentropic (constant entropy).</li>
+      <li><b>Throttling</b> keeps enthalpy constant. <b>Free expansion:</b> Q = 0, W = 0, ΔU = 0.</li>
+      <li><b>Steam:</b> triple point of water is 0.01 °C. The critical point is 374.15 °C and 221.2 bar. Dryness fraction x = mass of vapour / total mass. The Mollier chart plots h against s.</li>
+      <li>Rankine efficiency rises with higher boiler pressure, superheating, lower condenser pressure, reheat and regeneration.</li>
+    </ul>
+    <p class="k">Question patterns</p><p>Carnot efficiency or COP from temperatures · ΔU from Q and W · "which process has constant ___" · statement of a law · ways to raise Rankine efficiency</p>
+    <div class="ex"><p class="q">Example 1. A Carnot engine works between 527 °C and 27 °C. Find its efficiency.</p><p>T1 = 800 K, T2 = 300 K. η = 1 − 300/800 = <b>62.5%</b>. (Using °C gives a wrong 94.9%.)</p></div>
+    <div class="ex"><p class="q">Example 2. A gas receives 50 kJ of heat and does 20 kJ of work. Find the change in internal energy.</p><p>ΔU = Q − W = 50 − 20 = <b>+30 kJ</b>.</p></div>
+    <p class="k">Common mistakes</p><ul><li>Using °C instead of K.</li><li>Sign of work: work done <i>by</i> the gas is positive.</li><li>Mixing up the refrigerator COP (T2/(T1−T2)) and the heat pump COP (T1/(T1−T2)).</li></ul>
+    <p class="small">Time: 50 min</p>
+  </div></details>
+
+  <details><summary>IC Engines <span class="pill p-a">A</span></summary><div class="dbody">
+    <p class="k">Subtopics</p><p>Otto, Diesel and Dual cycles · 2-stroke vs 4-stroke · SI vs CI · knocking · fuel ratings · performance (IP, BP, efficiencies) · cooling and lubrication</p>
+    <p class="k">Concepts</p>
+    <ul>
+      <li><b>SI (petrol)</b> engines use a spark plug. Compression ratio is 6–10, the cycle is Otto and fuel is controlled by a carburettor or injector.</li>
+      <li><b>CI (diesel)</b> engines use compression ignition. Compression ratio is 14–22, the cycle is Diesel, with a fuel injector.</li>
+      <li>A <b>4-stroke</b> engine gives one power stroke every 2 crank revolutions. A <b>2-stroke</b> engine gives one every revolution and needs scavenging.</li>
+      <li><b>Octane number</b> rates petrol (SI) anti-knock quality, using iso-octane and n-heptane. <b>Cetane number</b> rates diesel (CI) ignition quality, using cetane and α-methylnaphthalene.</li>
+      <li><b>SI knock</b> happens at the end of combustion, when the end-gas self-ignites. <b>CI knock</b> happens at the start, from a long ignition delay. The factors that reduce SI knock <i>increase</i> CI knock, and the reverse.</li>
+      <li>Firing order of a 4-cylinder inline engine: <b>1-3-4-2</b>. The Morse test finds the IP of a multi-cylinder engine. Willan's line method finds friction power in a CI engine.</li>
+      <li>For the same compression ratio: η Otto &gt; Dual &gt; Diesel. For the same maximum pressure: Diesel &gt; Dual &gt; Otto.</li>
+    </ul>
+    <p class="k">Question patterns</p><p>Otto efficiency from r · swept volume and compression ratio · octane vs cetane · which engine part/process · comparing cycles</p>
+    <div class="ex"><p class="q">Example 1. Bore 100 mm, stroke 120 mm, clearance volume 157 cc. Find the compression ratio.</p><p>Vs = π/4 × 10² × 12 = 942 cc. r = (942 + 157)/157 = <b>7</b>.</p></div>
+    <div class="ex"><p class="q">Example 2. Otto cycle with r = 8 and γ = 1.4.</p><p>η = 1 − 1/8^0.4 = 1 − 1/2.297 = <b>56.5%</b>.</p></div>
+    <p class="k">Common mistakes</p><ul><li>For a 4-stroke engine, power strokes per minute are N/2, not N.</li><li>Comparing Otto and Diesel without checking "same r" or "same max pressure".</li></ul>
+    <p class="small">Time: 30 min</p>
+  </div></details>
+
+  <details><summary>Fluid Mechanics <span class="pill p-a">A</span></summary><div class="dbody">
+    <p class="k">Subtopics</p><p>Fluid properties · pressure and its measurement · hydrostatic forces and buoyancy · kinematics (continuity) · Bernoulli · flow measurement · laminar/turbulent flow · pipe losses · notches</p>
+    <p class="k">Concepts</p>
+    <ul>
+      <li><b>Viscosity</b> is a fluid's resistance to flow. Newton's law: τ = μ du/dy. For liquids, viscosity falls as temperature rises. For gases it rises.</li>
+      <li><b>Pressure</b> at depth h is ρgh. Absolute pressure = gauge + atmospheric. 1 atm = 101.325 kPa = 10.33 m of water = 760 mm of Hg.</li>
+      <li>A <b>piezometer</b> cannot measure gas or negative pressure. A <b>U-tube manometer</b> can. An <b>inverted U-tube</b> measures small differences.</li>
+      <li>The <b>centre of pressure</b> on a submerged vertical surface is always <i>below</i> the centroid. A floating body is stable if the metacentre lies above the centre of gravity (GM &gt; 0).</li>
+      <li><b>Bernoulli</b> assumes steady, incompressible, non-viscous flow along a streamline. Pressure head + velocity head + datum head = constant.</li>
+      <li>A <b>venturimeter</b> has Cd 0.95–0.98. An <b>orifice meter</b> has Cd about 0.6–0.65. A <b>pitot tube</b> measures velocity at a point.</li>
+      <li><b>Reynolds number</b> in a pipe: below 2000 is laminar, above 4000 is turbulent. In laminar flow, f = 64/Re and Vmax = 2 × Vavg.</li>
+    </ul>
+    <p class="k">Question patterns</p><p>Pressure at depth · velocity after a change in diameter · flow regime from Re · which device measures what · Bernoulli assumptions · surface tension formulas</p>
+    <div class="ex"><p class="q">Example 1. Water flows in a pipe that narrows from 200 mm to 100 mm. V1 = 2 m/s. Find V2.</p><p>A ∝ d². The area falls to 1/4, so V2 = 4 × 2 = <b>8 m/s</b>.</p></div>
+    <div class="ex"><p class="q">Example 2. V = 0.5 m/s, D = 20 mm, ν = 1×10⁻⁶ m²/s. What is the flow regime?</p><p>Re = VD/ν = 0.5 × 0.02 / 10⁻⁶ = 10,000, so the flow is <b>turbulent</b>.</p></div>
+    <p class="k">Common mistakes</p><ul><li>Kinematic (ν) vs dynamic (μ) viscosity: ν = μ/ρ.</li><li>Darcy f vs the friction coefficient f′: f = 4f′.</li><li>Using diameter as if it were radius in surface-tension formulas.</li></ul>
+    <p class="small">Time: 50 min</p>
+  </div></details>
+
+  <details><summary>Hydraulic Machines <span class="pill p-a">A</span></summary><div class="dbody">
+    <p class="k">Concepts</p>
+    <ul>
+      <li><b>Pelton wheel:</b> impulse turbine for high head and low specific speed, with tangential flow. Best bucket speed is half the jet speed.</li>
+      <li><b>Francis turbine:</b> reaction turbine for medium head, with inward radial/mixed flow.</li>
+      <li><b>Kaplan turbine:</b> reaction turbine for low head and high specific speed, with axial flow and adjustable blades. A propeller turbine has fixed blades.</li>
+      <li>A <b>draft tube</b> is used only with reaction turbines. It recovers kinetic energy and lets the turbine sit above the tailrace.</li>
+      <li><b>Specific speed</b> for a turbine is N√P / H^(5/4). For a pump it is N√Q / H^(3/4).</li>
+      <li><b>Centrifugal pump:</b> needs priming and uses backward-curved vanes. Avoid cavitation by keeping NPSH available above NPSH required. Pumps in series add head; pumps in parallel add discharge.</li>
+      <li><b>Reciprocating pump:</b> an air vessel smooths the flow and saves work. Negative slip means actual discharge is more than theoretical.</li>
+    </ul>
+    <div class="ex"><p class="q">Example. The jet velocity of a Pelton wheel is 40 m/s. Find the bucket speed for maximum efficiency.</p><p>u = V/2 = <b>20 m/s</b>.</p></div>
+    <p class="k">Common mistakes</p><ul><li>Swapping the exponents 5/4 (turbine) and 3/4 (pump).</li><li>Thinking Pelton has a draft tube. It does not.</li></ul>
+    <p class="small">Time: 30 min</p>
+  </div></details>
+
+  <details><summary>Strength of Materials <span class="pill p-a">A</span></summary><div class="dbody">
+    <p class="k">Subtopics</p><p>Stress, strain and Hooke's law · elastic constants · thermal stress · strain energy · SFD/BMD · bending stress · deflection · torsion · columns · thin cylinders · principal stresses</p>
+    <p class="k">Concepts</p>
+    <ul>
+      <li>Hooke's law holds up to the limit of proportionality. On the stress-strain curve the points come in order: proportional limit → elastic limit → upper/lower yield → ultimate → fracture.</li>
+      <li><b>Poisson's ratio</b> μ is between 0 and 0.5. It is about 0.3 for steel, near 0 for cork and near 0.5 for rubber.</li>
+      <li>A <b>suddenly applied load</b> causes twice the stress of the same load applied gradually.</li>
+      <li>Bending stress is zero at the <b>neutral axis</b> and largest at the outer fibres. Shear stress is largest at the neutral axis.</li>
+      <li>Where the <b>shear force</b> is zero, the bending moment is maximum.</li>
+      <li>A <b>hollow shaft</b> is stronger than a solid shaft of the same weight.</li>
+      <li><b>Euler's formula</b> applies to long columns. Effective length: both ends hinged L, both fixed L/2, one fixed one free 2L, one fixed one hinged L/√2.</li>
+    </ul>
+    <p class="k">Question patterns</p><p>Find G or K from E and μ · thermal stress · max BM or deflection for standard cases · torque and power · Euler load ratio · hoop vs longitudinal stress</p>
+    <div class="ex"><p class="q">Example 1. E = 200 GPa and μ = 0.25. Find G.</p><p>G = E / 2(1 + μ) = 200 / 2.5 = <b>80 GPa</b>.</p></div>
+    <div class="ex"><p class="q">Example 2. A simply supported beam of 4 m span carries a 10 kN load at its centre. Find the maximum bending moment.</p><p>M = WL/4 = 10 × 4/4 = <b>10 kN·m</b>.</p></div>
+    <p class="k">Common mistakes</p><ul><li>Taking I = πd⁴/64 for torsion. Torsion uses J = πd⁴/32.</li><li>Units: 1 MPa = 1 N/mm².</li><li>Euler ratios: a fixed-fixed column carries 4 times the load of a hinged-hinged one, and a fixed-free column carries 1/4.</li></ul>
+    <p class="small">Time: 60 min</p>
+  </div></details>
+
+  <details><summary>Engineering Mechanics <span class="pill p-a">A</span></summary><div class="dbody">
+    <ul>
+      <li><b>Friction:</b> F = μN. The angle of repose equals the angle of friction, so tan φ = μ. Static friction is greater than kinetic friction. Friction does not depend on contact area.</li>
+      <li><b>Lami's theorem:</b> applies to three concurrent forces in equilibrium. Each force is proportional to the sine of the angle between the other two.</li>
+      <li><b>Projectile:</b> range is maximum at 45°. Angles θ and (90° − θ) give the same range.</li>
+      <li><b>Centroids:</b> a triangle's is h/3 from its base. A semicircle's is 4r/3π from its diameter.</li>
+    </ul>
+    <div class="ex"><p class="q">Example 1. A ball is thrown at 20 m/s at 45°, with g = 10. Find the range.</p><p>R = u² sin 2θ / g = 400 × 1 / 10 = <b>40 m</b>.</p></div>
+    <div class="ex"><p class="q">Example 2. A block on an incline starts to slide at 30°. Find μ.</p><p>μ = tan 30° = <b>0.577</b>.</p></div>
+    <p class="small">Time: 25 min</p>
+  </div></details>
+
+  <details><summary>Production / Manufacturing <span class="pill p-a">A</span></summary><div class="dbody">
+    <p class="k">Casting</p>
+    <ul>
+      <li>Pattern allowances: shrinkage, draft, machining, distortion and shake. Shake is the only <b>negative</b> allowance.</li>
+      <li>Gating parts are the sprue, runner and gate. The riser must solidify <b>last</b>. Chvorinov's rule: solidification time ∝ (V/A)².</li>
+      <li>Defects: blow holes (gas), cold shut and misrun (low fluidity or temperature), hot tears (restrained contraction).</li>
+      <li>Investment casting is also called lost-wax casting. Centrifugal casting makes pipes. Die casting is used for non-ferrous metals.</li>
+    </ul>
+    <p class="k">Welding</p>
+    <ul>
+      <li>An oxy-acetylene <b>neutral flame</b> (O₂ : C₂H₂ = 1:1) reaches about 3200 °C. An <b>oxidizing</b> flame has extra O₂ and is used for brass and bronze. A <b>carburizing</b> flame has extra acetylene and is used for high-carbon steel.</li>
+      <li><b>TIG</b> uses a non-consumable tungsten electrode. <b>MIG</b> uses a consumable wire. SAW is submerged arc. Spot and seam welding are resistance welding. Thermit welding is used for rails.</li>
+      <li>Brazing is done above 450 °C and soldering below 450 °C. Neither melts the base metal.</li>
+    </ul>
+    <p class="k">Machining</p>
+    <ul>
+      <li>Cutting speed V = πDN/1000 (m/min). Taylor's tool-life equation: VTⁿ = C. Typical n is about 0.1 for HSS, 0.25 for carbide and 0.5 for ceramics.</li>
+      <li>Continuous chips come from ductile material at high speed. Discontinuous chips come from brittle material. A built-up edge forms at low speed on ductile material.</li>
+      <li>Merchant's shear-angle relation: φ = 45° + α/2 − β/2.</li>
+      <li>Grinding wheels: Al₂O₃ for steels, SiC for cast iron and non-ferrous metals. The specification order is abrasive, grain size, grade, structure, bond.</li>
+      <li>Up milling is conventional; down milling is climb milling. A shaper uses a quick-return mechanism.</li>
+      <li><b>EDM</b> needs a conductive workpiece and a dielectric fluid. <b>ECM</b> works on Faraday's law, like electroplating in reverse. <b>USM</b> is for hard, brittle materials such as glass. <b>EBM</b> needs a vacuum. <b>LBM</b> works on any material.</li>
+    </ul>
+    <p class="k">Forming</p>
+    <ul>
+      <li>Hot working is done above the recrystallization temperature, cold working below it.</li>
+      <li><b>Punching:</b> the punch is the hole size and clearance goes on the die. <b>Blanking:</b> the die is the blank size and clearance goes on the punch. Shearing force F = L × t × τ.</li>
+    </ul>
+    <div class="ex"><p class="q">Example 1. Turning a 50 mm bar at 600 rpm. Find the cutting speed.</p><p>V = π × 50 × 600 / 1000 = <b>94.2 m/min</b>.</p></div>
+    <div class="ex"><p class="q">Example 2. Taylor exponent n = 0.5. The cutting speed is doubled. What happens to tool life?</p><p>T₂/T₁ = (V₁/V₂)^(1/n) = (1/2)² = <b>1/4</b>.</p></div>
+    <p class="k">Common mistakes</p><ul><li>Swapping punch and die clearance.</li><li>Forgetting to divide by 1000 in V = πDN/1000.</li></ul>
+    <p class="small">Time: 70 min</p>
+  </div></details>
+
+  <details><summary>Engineering Materials <span class="pill p-a">A</span></summary><div class="dbody">
+    <ul>
+      <li><b>Iron-carbon:</b> steel has up to about 2% C; cast iron has 2–6.67% C. The <b>eutectoid</b> point is 0.8% C at 727 °C and gives pearlite. The <b>eutectic</b> point is 4.3% C at 1147 °C and gives ledeburite.</li>
+      <li><b>Steels:</b> low carbon (mild) &lt; 0.3% C, medium 0.3–0.6%, high 0.6–1.5%. 40C8 means 0.40% C and 0.8% Mn. Stainless steel has at least 10.5–12% Cr; 18-8 means 18% Cr and 8% Ni. HSS 18-4-1 means 18% W, 4% Cr and 1% V.</li>
+      <li><b>Heat treatment:</b> annealing (furnace cool) softens. Normalizing (air cool) refines grain. Hardening (quench) gives martensite. Tempering reduces brittleness. Case hardening includes carburizing, nitriding and cyaniding.</li>
+      <li><b>Crystal structures:</b> BCC (α-iron, Cr, W, Mo) has APF 0.68 and 2 atoms per cell. FCC (γ-iron, Al, Cu, Ni, Ag, Au, Pb) has APF 0.74 and 4 atoms. HCP (Zn, Mg, Ti) has APF 0.74 and 6 atoms.</li>
+      <li><b>Alloys:</b> brass is Cu + Zn. Bronze is Cu + Sn. Gun metal is Cu + Sn + Zn. Duralumin is Al + Cu + Mg + Mn. Invar is Fe with 36% Ni. German silver is Cu + Zn + Ni.</li>
+      <li><b>Hardness tests:</b> Brinell uses a steel ball. Vickers uses a diamond pyramid. Rockwell uses a diamond cone (C scale) or ball (B scale). Charpy and Izod are impact tests.</li>
+    </ul>
+    <div class="ex"><p class="q">Example. A steel with 0.4% C, cooled slowly. What is its structure?</p><p>Below 0.8% C it is hypoeutectoid, so the structure is <b>ferrite + pearlite</b>.</p></div>
+    <p class="small">Time: 30 min</p>
+  </div></details>
+
+  <details><summary>Theory of Machines <span class="pill p-b">B</span></summary><div class="dbody">
+    <ul>
+      <li>Kutzbach mobility: n = 3(L − 1) − 2j − h. Grashof's condition: s + l ≤ p + q, which allows at least one link to rotate fully.</li>
+      <li>Single slider-crank inversions include the Whitworth and crank-and-slotted-lever quick-return mechanisms and the rotary engine. Double slider-crank inversions are the elliptical trammel, Scotch yoke and Oldham coupling.</li>
+      <li>Belt: N₂/N₁ = d₁/d₂ and T₁/T₂ = e^(μθ). Maximum power is transmitted when centrifugal tension Tc = Tmax/3.</li>
+      <li>Gears: module m = D/T. Spur gears connect parallel shafts, bevel gears intersecting shafts, and worm gears non-intersecting perpendicular shafts (high speed ratio, can be self-locking).</li>
+      <li>Governors: Watt height h = 895/N² m. Porter and Proell are dead-weight types; Hartnell is spring-loaded. An isochronous governor has zero speed range. Hunting means the governor is too sensitive.</li>
+      <li>A flywheel limits speed changes <i>within</i> one cycle. A governor controls the <i>mean</i> speed under changing load.</li>
+      <li>Natural frequency ωn = √(k/m). Springs in series: 1/k = 1/k₁ + 1/k₂. In parallel: k = k₁ + k₂.</li>
+    </ul>
+    <p class="small">Time: 35 min</p>
+  </div></details>
+
+  <details><summary>Boilers, Nozzles, Turbines, Compressors <span class="pill p-b">B</span></summary><div class="dbody">
+    <ul>
+      <li><b>Fire-tube boilers</b> (hot gas inside the tubes): Cochran, Lancashire, Cornish, Locomotive. <b>Water-tube boilers:</b> Babcock &amp; Wilcox and Stirling. High-pressure boilers: Lamont, Benson, Loeffler, Velox. Benson has no drum.</li>
+      <li><b>Mountings</b> are for safety: safety valve, water-level indicator, pressure gauge, fusible plug, stop valve, blow-off cock, feed check valve. <b>Accessories</b> improve efficiency: economiser, superheater, air preheater, feed pump, injector.</li>
+      <li><b>Critical pressure ratio</b> in a nozzle: 0.528 for air, 0.546 for superheated steam, 0.577 for saturated steam.</li>
+      <li>De Laval is an <b>impulse</b> turbine; pressure drops only in the nozzles. Parsons is a <b>reaction</b> turbine with 50% reaction. Compounding (pressure or velocity) reduces rotor speed.</li>
+      <li><b>Compressors:</b> isothermal compression needs the least work. Multistage compression with intercooling saves work; the best intermediate pressure is √(p₁p₃). Volumetric efficiency falls as clearance and pressure ratio rise.</li>
+    </ul>
+    <p class="small">Time: 30 min</p>
+  </div></details>
+
+  <details><summary>Refrigeration &amp; AC <span class="pill p-b">B</span></summary><div class="dbody">
+    <ul>
+      <li>1 TR = 3.5 kW = 210 kJ/min. COP = refrigerating effect / work input.</li>
+      <li>The VCR cycle runs compressor → condenser → expansion valve → evaporator. The expansion valve is a throttling device, so enthalpy stays constant.</li>
+      <li>Refrigerant numbers: add 90 to the R-number to get the digits C, H, F. For R-12: 12 + 90 = 102 → C1 H0 F2 → CCl₂F₂. For R-22: 112 → CHClF₂. For R-134a: 224 → C₂H₂F₄. Ammonia is R-717.</li>
+      <li>The Bell-Coleman cycle is air refrigeration and is used in aircraft. A vapour-absorption system uses ammonia-water or LiBr-water.</li>
+      <li>Psychrometry terms: DBT, WBT, DPT and relative humidity. At saturation all three temperatures are equal.</li>
+    </ul>
+    <p class="small">Time: 20 min</p>
+  </div></details>
+
+  <details><summary>Heat Transfer <span class="pill p-b">B</span></summary><div class="dbody">
+    <ul>
+      <li>Conduction follows Fourier's law, convection follows Newton's law of cooling, and radiation follows the Stefan-Boltzmann law (∝ T⁴).</li>
+      <li>Thermal conductivity: silver &gt; copper &gt; aluminium. Gases conduct poorly.</li>
+      <li>A black body has absorptivity 1. Kirchhoff's law says emissivity equals absorptivity.</li>
+      <li>Critical radius of insulation is k/h for a cylinder and 2k/h for a sphere.</li>
+      <li>Nu = hL/k<sub>fluid</sub>. Bi = hL/k<sub>solid</sub>; lumped analysis is valid when Bi &lt; 0.1. Pr = μc<sub>p</sub>/k. Gr is used for natural convection.</li>
+      <li>A counter-flow heat exchanger is more effective than parallel flow.</li>
+    </ul>
+    <p class="small">Time: 20 min</p>
+  </div></details>
+
+  <details><summary>Machine Design · Metrology · Industrial Engg <span class="pill p-b">B</span></summary><div class="dbody">
+    <ul>
+      <li><b>Theories of failure:</b> maximum principal stress (Rankine) for brittle materials. Maximum shear stress (Tresca/Guest) for ductile materials; it is conservative and gives τ<sub>y</sub> = 0.5σ<sub>y</sub>. Distortion energy (von Mises) is best for ductile materials and gives τ<sub>y</sub> = 0.577σ<sub>y</sub>.</li>
+      <li><b>Fatigue:</b> Soderberg is the most conservative (uses yield strength). Goodman uses ultimate strength. Gerber is a parabola.</li>
+      <li>Riveted joints: Unwin's formula d = 6√t (mm). Joint efficiency = weakest strength / strength of the solid plate. Keys include sunk, Woodruff and Kennedy.</li>
+      <li><b>Metrology:</b> Vernier least count = 1 MSD − 1 VSD. A micrometer reads to 0.01 mm. Fits are clearance, transition or interference. Hole-basis is the preferred system.</li>
+      <li><b>Industrial engineering:</b> work study = method study + work measurement. PERT uses three time estimates (probabilistic). CPM uses one (deterministic). The critical path has zero float.</li>
+      <li>Control charts: X̄ and R for variables. p and c for attributes. ABC analysis: A items are about 10% of items but about 70% of value.</li>
+    </ul>
+    <p class="small">Time: 20 min</p>
+  </div></details>
+</section>
+
+<!-- 7 FORMULAS -->
+<section id="formulas">
+  <div class="sec-no">06 · FORMULA SHEET</div>
+  <h2>Formula sheet</h2>
+  <p class="small">Each entry gives the formula, its terms with SI units, where it is used, and the trap examiners set. Red lines are the traps.</p>
+
+  <details><summary>Engineering Mechanics</summary><div class="dbody">
+    <div class="f"><div class="eq">F = μN ;  tan φ = μ</div><p><b>Terms:</b> F friction force (N), μ coefficient of friction (no unit), N normal reaction (N), φ angle of friction.</p><p><b>Use:</b> sliding blocks, inclines. If μ = 0.3 and N = 100 N, then F = 30 N.</p><p class="trap"><b>Trap:</b> on an incline N = mg cos θ, not mg.</p></div>
+    <div class="f"><div class="eq">R = u² sin2θ / g ;  H = u² sin²θ / 2g ;  T = 2u sinθ / g</div><p><b>Terms:</b> u launch speed (m/s), θ angle, g 9.81 m/s². R range, H max height (m), T flight time (s).</p><p><b>Use:</b> projectile questions. Range is maximum at θ = 45°: R<sub>max</sub> = u²/g.</p><p class="trap"><b>Trap:</b> 30° and 60° give the same range.</p></div>
+    <div class="f"><div class="eq">I = I_G + A h²</div><p><b>Terms:</b> I<sub>G</sub> moment of inertia about the centroid (m⁴), A area (m²), h distance between axes (m).</p><p><b>Standard values:</b> rectangle bd³/12 (centroid), bd³/3 (base). Circle πd⁴/64. Triangle bh³/36 (centroid), bh³/12 (base).</p><p class="trap"><b>Trap:</b> for a triangle, /36 is about the centroid and /12 is about the base.</p></div>
+  </div></details>
+
+  <details><summary>Strength of Materials</summary><div class="dbody">
+    <div class="f"><div class="eq">σ = P/A ;  ε = δL/L ;  E = σ/ε ;  δL = PL/AE</div><p><b>Terms:</b> σ stress (Pa = N/m²), P load (N), A area (m²), ε strain (no unit), E Young's modulus (Pa), L length (m).</p><p><b>Use:</b> rod elongation. P = 10 kN, L = 1 m, A = 100 mm², E = 200 GPa gives δ = 10⁴ × 1 / (10⁻⁴ × 2×10¹¹) = 0.5 mm.</p><p class="trap"><b>Trap:</b> convert mm² to m² (×10⁻⁶), or work in N and mm throughout (MPa = N/mm²).</p></div>
+    <div class="f"><div class="eq">E = 2G(1+μ) = 3K(1−2μ) ;  E = 9KG/(3K+G)</div><p><b>Terms:</b> G shear (rigidity) modulus, K bulk modulus (Pa), μ Poisson's ratio.</p><p><b>Use:</b> E = 200 GPa and μ = 0.25 give G = 80 GPa.</p><p class="trap"><b>Trap:</b> if μ = 0.5 then K is infinite (incompressible). μ can never be above 0.5.</p></div>
+    <div class="f"><div class="eq">σ_thermal = E α ΔT</div><p><b>Terms:</b> α expansion coefficient (/°C), ΔT temperature change.</p><p><b>Use:</b> a fully restrained steel bar (α = 12×10⁻⁶) heated by 50 °C gives 120 MPa.</p><p class="trap"><b>Trap:</b> if the bar is free to expand, the stress is zero. If the support yields partly, subtract the allowed expansion first.</p></div>
+    <div class="f"><div class="eq">U = (σ² / 2E) × Volume ;  σ_sudden = 2P/A</div><p><b>Terms:</b> U strain energy (J). Resilience is the strain energy at the elastic limit.</p><p class="trap"><b>Trap:</b> a sudden load doubles the stress, not the energy alone.</p></div>
+    <div class="f"><div class="eq">M/I = σ/y = E/R ;  Z = I/y_max</div><p><b>Terms:</b> M bending moment (N·m), I moment of inertia (m⁴), y distance from neutral axis (m), R radius of curvature, Z section modulus (m³).</p><p><b>Standard values:</b> rectangle Z = bd²/6. Circle Z = πd³/32.</p><p class="trap"><b>Trap:</b> doubling depth d makes a rectangular beam 4 times stronger; doubling width b only doubles it.</p></div>
+    <div class="f"><div class="eq">Max BM: SSB centre load WL/4 · SSB UDL wL²/8 · Cantilever end load WL · Cantilever UDL wL²/2</div><p><b>Terms:</b> SSB is a simply supported beam. W point load (N), w load per metre (N/m), L span (m).</p><p class="trap"><b>Trap:</b> for a cantilever the maximum BM is at the fixed end, not the free end.</p></div>
+    <div class="f"><div class="eq">Max deflection: Cant. end load WL³/3EI · Cant. UDL wL⁴/8EI · SSB centre WL³/48EI · SSB UDL 5wL⁴/384EI</div><p><b>Use:</b> ratio questions, for example "what happens if L doubles?" For WL³ the deflection becomes 8 times.</p><p class="trap"><b>Trap:</b> 5/384 belongs to SSB with UDL only.</p></div>
+    <div class="f"><div class="eq">T/J = τ/r = Gθ/L ;  J = πd⁴/32 ;  T = (π/16) τ d³ ;  P = 2πNT/60</div><p><b>Terms:</b> T torque (N·m), J polar moment (m⁴), τ shear stress (Pa), θ twist (rad), N speed (rpm), P power (W).</p><p><b>Use:</b> N = 600 rpm and T = 500 N·m give P = 31.4 kW.</p><p class="trap"><b>Trap:</b> θ must be in radians. For a hollow shaft J = π(D⁴ − d⁴)/32.</p></div>
+    <div class="f"><div class="eq">τ_max = 1.5 τ_avg (rectangle) ;  4/3 τ_avg (circle)</div><p><b>Use:</b> beam shear questions.</p></div>
+    <div class="f"><div class="eq">P_cr = π² E I / Le²</div><p><b>Terms:</b> Le effective length. Hinged-hinged L, fixed-fixed L/2, fixed-free 2L, fixed-hinged L/√2.</p><p class="trap"><b>Trap:</b> with Le = L/2 the load becomes 4 times, not 2 times. Use the smaller I (weaker axis).</p></div>
+    <div class="f"><div class="eq">Thin cylinder: σ_hoop = pd/2t ; σ_long = pd/4t · Sphere: pd/4t</div><p><b>Terms:</b> p internal pressure (Pa), d diameter, t wall thickness (m).</p><p class="trap"><b>Trap:</b> hoop stress is twice longitudinal stress, so cylinders split along their length.</p></div>
+    <div class="f"><div class="eq">σ1,2 = (σx+σy)/2 ± √[((σx−σy)/2)² + τ²] ;  τ_max = (σ1−σ2)/2</div><p><b>Use:</b> principal stress and Mohr's circle questions. The planes of maximum shear are at 45° to the principal planes.</p></div>
+  </div></details>
+
+  <details><summary>Thermodynamics</summary><div class="dbody">
+    <div class="f"><div class="eq">Q = ΔU + W ;  pv = RT ;  cp − cv = R ;  γ = cp/cv</div><p><b>Terms:</b> Q heat (J), U internal energy, W work. For air R = 0.287 kJ/kg·K and γ = 1.4.</p><p class="trap"><b>Trap:</b> for an ideal gas, U depends only on temperature. An isothermal process has ΔU = 0, so Q = W.</p></div>
+    <div class="f"><div class="eq">W: isobaric p(V2−V1) · isothermal p1V1 ln(V2/V1) · polytropic (p1V1−p2V2)/(n−1) · isochoric 0</div><p><b>Use:</b> work in each process. An adiabatic process is polytropic with n = γ.</p><p class="trap"><b>Trap:</b> n = 0 is isobaric, n = 1 isothermal, n = γ adiabatic, n = ∞ isochoric.</p></div>
+    <div class="f"><div class="eq">η_Carnot = 1 − T2/T1 ;  COP_R = T2/(T1−T2) ;  COP_HP = T1/(T1−T2) = COP_R + 1</div><p><b>Terms:</b> T1 hot and T2 cold reservoir temperatures, in K.</p><p><b>Use:</b> 250 K and 300 K give COP<sub>R</sub> = 5 and COP<sub>HP</sub> = 6.</p><p class="trap"><b>Trap:</b> always convert to Kelvin (+273).</p></div>
+    <div class="f"><div class="eq">ds = δQ_rev / T ;  ∮ δQ/T ≤ 0 (Clausius)</div><p><b>Use:</b> entropy questions. The integral is 0 for a reversible cycle and less than 0 for an irreversible one.</p></div>
+    <div class="f"><div class="eq">h = hf + x·hfg ;  hfg at 100 °C = 2257 kJ/kg</div><p><b>Terms:</b> x dryness fraction, hf liquid enthalpy, hfg latent heat.</p><p><b>Use:</b> enthalpy of wet steam. A throttling calorimeter measures x.</p></div>
+    <div class="f"><div class="eq">η_Brayton = 1 − 1/rp^((γ−1)/γ) ;  η_Rankine = (W_T − W_P)/Q_in</div><p><b>Use:</b> gas turbine and steam plant efficiency. rp is the pressure ratio.</p><p class="trap"><b>Trap:</b> the Brayton exponent is (γ−1)/γ, not γ−1.</p></div>
+  </div></details>
+
+  <details><summary>IC Engines &amp; Compressors</summary><div class="dbody">
+    <div class="f"><div class="eq">η_Otto = 1 − 1 / r^(γ−1) ;  r = (Vs+Vc)/Vc ;  Vs = (π/4)D²L</div><p><b>Terms:</b> r compression ratio, Vs swept volume, Vc clearance volume, D bore, L stroke.</p><p><b>Use:</b> r = 8 gives η = 56.5%.</p><p class="trap"><b>Trap:</b> Otto efficiency depends only on r and γ, not on heat input.</p></div>
+    <div class="f"><div class="eq">η_Diesel = 1 − (1/r^(γ−1)) × [(ρ^γ − 1)/(γ(ρ − 1))]</div><p><b>Terms:</b> ρ cut-off ratio. The bracket is always greater than 1, so Diesel is less efficient than Otto at the same r.</p></div>
+    <div class="f"><div class="eq">IP = p_m L A n k / 60 ;  BP = 2πNT/60 ;  η_mech = BP/IP</div><p><b>Terms:</b> p<sub>m</sub> mean effective pressure (Pa), L stroke (m), A piston area (m²), n = N/2 for 4-stroke or N for 2-stroke, k number of cylinders. Friction power = IP − BP.</p><p class="trap"><b>Trap:</b> n = N/2 for a 4-stroke engine.</p></div>
+    <div class="f"><div class="eq">η_vol = 1 + C − C (p2/p1)^(1/n) ;  p_intermediate = √(p1 p3)</div><p><b>Terms:</b> C clearance ratio. Used for reciprocating compressors and 2-stage compression with intercooling.</p></div>
+  </div></details>
+
+  <details><summary>Fluid Mechanics &amp; Machines</summary><div class="dbody">
+    <div class="f"><div class="eq">p = ρgh ;  w = ρg = 9810 N/m³ (water)</div><p><b>Terms:</b> ρ density (kg/m³; water 1000), h depth (m).</p><p><b>Use:</b> 5 m of water gives 49.05 kPa gauge.</p><p class="trap"><b>Trap:</b> this is gauge pressure. Add 101.325 kPa for absolute.</p></div>
+    <div class="f"><div class="eq">τ = μ du/dy ;  ν = μ/ρ ;  1 poise = 0.1 Pa·s ;  1 stoke = 10⁻⁴ m²/s</div><p><b>Terms:</b> μ dynamic viscosity (Pa·s), ν kinematic viscosity (m²/s).</p></div>
+    <div class="f"><div class="eq">Δp: droplet 4σ/d · soap bubble 8σ/d · jet 2σ/d ;  h = 4σ cosθ / ρgd</div><p><b>Terms:</b> σ surface tension (N/m), d diameter (m), h capillary rise.</p><p class="trap"><b>Trap:</b> a soap bubble has two surfaces, so 8σ/d. Mercury (θ &gt; 90°) shows capillary fall.</p></div>
+    <div class="f"><div class="eq">A1V1 = A2V2 ;  p/ρg + V²/2g + z = constant</div><p><b>Use:</b> continuity and Bernoulli. Halving the diameter makes the velocity 4 times.</p><p class="trap"><b>Trap:</b> Bernoulli does not apply to viscous or unsteady flow.</p></div>
+    <div class="f"><div class="eq">Q = Cd A1A2 √(2gh) / √(A1² − A2²) ;  h = x (S_m/S − 1) ;  V_pitot = √(2gh)</div><p><b>Terms:</b> venturimeter discharge (m³/s). x is the manometer reading and S<sub>m</sub> the manometer fluid's specific gravity.</p><p class="trap"><b>Trap:</b> with a mercury-water manometer, h = 12.6x, not 13.6x.</p></div>
+    <div class="f"><div class="eq">Re = ρVD/μ = VD/ν ;  laminar f = 64/Re</div><p><b>Use:</b> flow regime. Re &lt; 2000 is laminar and Re &gt; 4000 is turbulent.</p><p class="trap"><b>Trap:</b> 64/Re is the Darcy f. Some books write 16/Re for f′.</p></div>
+    <div class="f"><div class="eq">hf = f L V² / 2gD (Darcy) ;  sudden expansion (V1−V2)²/2g ;  exit V²/2g ;  entry 0.5 V²/2g</div><p><b>Use:</b> pipe losses. Maximum power is transmitted through a pipe when hf = H/3, giving η = 66.7%.</p></div>
+    <div class="f"><div class="eq">Rect. notch Q = (2/3) Cd b √(2g) H^(3/2) ;  V-notch Q = (8/15) Cd tan(θ/2) √(2g) H^(5/2)</div><p class="trap"><b>Trap:</b> the exponents are 3/2 for rectangular and 5/2 for triangular.</p></div>
+    <div class="f"><div class="eq">Turbine Ns = N√P / H^(5/4) ;  Pump Ns = N√Q / H^(3/4)</div><p><b>Use:</b> a low Ns means Pelton; a medium Ns means Francis; a high Ns means Kaplan.</p></div>
+  </div></details>
+
+  <details><summary>Theory of Machines &amp; Design</summary><div class="dbody">
+    <div class="f"><div class="eq">n = 3(L−1) − 2j − h</div><p><b>Terms:</b> L number of links, j lower pairs, h higher pairs. n = 1 means a constrained mechanism, n = 0 a structure.</p></div>
+    <div class="f"><div class="eq">N2/N1 = d1/d2 ;  T1/T2 = e^(μθ) ;  P = (T1−T2) v ;  Tc = T_max/3 for max power</div><p><b>Terms:</b> T1 and T2 tight- and slack-side tensions (N), θ angle of contact (rad), v belt speed (m/s).</p><p class="trap"><b>Trap:</b> θ must be in radians.</p></div>
+    <div class="f"><div class="eq">m = D/T ;  p_c = πm ;  speed ratio = T2/T1</div><p><b>Terms:</b> module m (mm), D pitch diameter, T number of teeth. To avoid interference with a rack, use at least 32 teeth at 14.5° and 18 teeth at 20°.</p></div>
+    <div class="f"><div class="eq">Watt h = 895/N² (m) ;  ΔE = I ω² Cs ;  Cs = (ω1−ω2)/ω</div><p><b>Terms:</b> N speed (rpm), ΔE flywheel energy fluctuation (J), Cs coefficient of speed fluctuation.</p></div>
+    <div class="f"><div class="eq">ωn = √(k/m) ;  fn = (1/2π)√(g/δ)</div><p><b>Terms:</b> k stiffness (N/m), m mass (kg), δ static deflection (m).</p><p class="trap"><b>Trap:</b> springs in series combine like resistors in parallel.</p></div>
+    <div class="f"><div class="eq">Te = √(M²+T²) ;  Me = ½[M + √(M²+T²)] ;  FOS = failure stress / working stress</div><p><b>Use:</b> shaft design under combined bending and torsion. For ductile materials failure stress is yield; for brittle materials it is ultimate.</p></div>
+  </div></details>
+
+  <details><summary>Heat Transfer &amp; RAC</summary><div class="dbody">
+    <div class="f"><div class="eq">Q = −kA dT/dx ;  R_cond = L/kA ;  R_conv = 1/hA</div><p><b>Terms:</b> k conductivity (W/m·K), h convection coefficient (W/m²·K). Resistances add in series, like electrical resistances.</p></div>
+    <div class="f"><div class="eq">Q = ε σ A T⁴ ;  σ = 5.67×10⁻⁸ W/m²K⁴ ;  λ_max T = 2898 μm·K</div><p><b>Use:</b> radiation. Doubling T multiplies emission by 16.</p><p class="trap"><b>Trap:</b> T must be in Kelvin.</p></div>
+    <div class="f"><div class="eq">r_c = k/h (cylinder) ;  2k/h (sphere)</div><p><b>Use:</b> below the critical radius, adding insulation increases heat loss.</p></div>
+    <div class="f"><div class="eq">LMTD = (ΔT1 − ΔT2) / ln(ΔT1/ΔT2)</div><p><b>Use:</b> heat exchangers. If ΔT1 = ΔT2, LMTD equals that ΔT.</p></div>
+    <div class="f"><div class="eq">1 TR = 3.5 kW ;  COP = RE / W</div><p><b>Use:</b> a 5 TR plant using 5 kW of work has COP = 17.5/5 = 3.5.</p></div>
+  </div></details>
+
+  <details><summary>Production &amp; Industrial Engg</summary><div class="dbody">
+    <div class="f"><div class="eq">V = πDN/1000 (m/min) ;  V Tⁿ = C</div><p><b>Terms:</b> D diameter (mm), N rpm, T tool life (min), n Taylor exponent, C constant.</p><p class="trap"><b>Trap:</b> a larger n means tool life is less sensitive to speed.</p></div>
+    <div class="f"><div class="eq">φ = 45° + α/2 − β/2 ;  r = t1/t2 = sinφ / cos(φ−α)</div><p><b>Terms:</b> φ shear angle, α rake angle, β friction angle, r chip thickness ratio (always less than 1).</p></div>
+    <div class="f"><div class="eq">MRR (turning) = f × d × V ;  shear force F = L t τ</div><p><b>Terms:</b> f feed, d depth of cut, V cutting speed. L cut length, t sheet thickness, τ shear strength.</p></div>
+    <div class="f"><div class="eq">t_s = B (V/A)²</div><p><b>Use:</b> Chvorinov's rule for solidification time. The riser needs a larger V/A than the casting.</p></div>
+    <div class="f"><div class="eq">EOQ = √(2DS/H) ;  t_e = (t_o + 4t_m + t_p)/6 ;  σ = (t_p − t_o)/6</div><p><b>Terms:</b> D annual demand, S ordering cost, H holding cost per unit per year. PERT uses optimistic (t<sub>o</sub>), most likely (t<sub>m</sub>) and pessimistic (t<sub>p</sub>) times.</p><p class="trap"><b>Trap:</b> at EOQ, ordering cost equals holding cost.</p></div>
+    <div class="f"><div class="eq">Vernier LC = 1 MSD − 1 VSD</div><p><b>Use:</b> if 10 VSD = 9 MSD and 1 MSD = 1 mm, LC = 0.1 mm.</p></div>
+  </div></details>
+</section>
+
+<!-- 8 REASONING -->
+<section id="reasoning">
+  <div class="sec-no">07 · REASONING SHEET</div>
+  <h2>Reasoning shortcuts</h2>
+  <p class="small">Do these types first: they are fast and appear in nearly every paper. Leave long puzzles and seating arrangements for the end.</p>
+  <div class="panel">
+    <div class="f"><div class="eq">Number series: check differences → second differences → ×/÷ → squares/cubes ± → alternate terms</div><p>2, 6, 12, 20, 30, ? → the differences are 4, 6, 8, 10, 12, so the answer is <b>42</b> (also n(n+1)).</p></div>
+    <div class="f"><div class="eq">Alphabet: A1 … Z26 ;  "EJOTY" = 5, 10, 15, 20, 25 ;  opposite letter = 27 − n</div><p>The opposite of D (4) is W (23). B, E, H, K, ? → +3, so the answer is <b>N</b>.</p></div>
+    <div class="f"><div class="eq">Coding: find the shift (+1, −1, reverse, opposite)</div><p>CAT → DBU (+1), so DOG → <b>EPH</b>.</p></div>
+    <div class="f"><div class="eq">Mathematical operations: swap the symbols first, then apply BODMAS</div><p>Write the new expression on paper before you calculate.</p></div>
+    <div class="f"><div class="eq">Ranking: total = left rank + right rank − 1</div><p>12th from the left and 18th from the right gives <b>29</b> people.</p></div>
+    <div class="f"><div class="eq">Direction: draw it ;  distance = √(x² + y²)</div><p>In the morning the sun is in the east, so shadows fall to the west. In the evening shadows fall to the east.</p></div>
+    <div class="f"><div class="eq">Blood relation: draw a tree (+ male, − female, = couple)</div><p>"My mother's only son" means the speaker's brother, or the speaker himself if male.</p></div>
+    <div class="f"><div class="eq">Clock angle θ = |30H − 5.5M|</div><p>At 3:30: |90 − 165| = <b>75°</b>. The hands overlap 22 times a day.</p></div>
+    <div class="f"><div class="eq">Calendar: normal year +1 day, leap year +2 days</div><p>1 Jan 2025 was a Wednesday, so 1 Jan 2026 was a <b>Thursday</b>. A century year is leap only if divisible by 400.</p></div>
+    <div class="f"><div class="eq">Syllogism: draw the smallest Venn diagram that fits</div><p>"All A are B" + "Some B are C" does <b>not</b> give "Some A are C". "Some B are A" always follows from "All A are B".</p></div>
+    <div class="f"><div class="eq">Mirror image: left ↔ right ;  water image: top ↔ bottom</div><p>Check one asymmetric corner of the figure, not the whole figure.</p></div>
+    <div class="f"><div class="eq">Dice: faces adjacent to the same face cannot be opposite each other</div><p>On a standard die opposite faces add to 7. With two views sharing a face, the remaining faces in the same position are opposite.</p></div>
+    <div class="f"><div class="eq">Missing number: try row sum, row product, then (a × b) + c</div><p>3, 4, 12 · 5, 6, 30 · 7, 8, ? → <b>56</b>.</p></div>
+    <div class="f"><div class="eq">Dictionary order: compare letter by letter</div><p>Energy, Engine, Enjoy, Enter: the third letters are e &lt; g &lt; j &lt; t.</p></div>
+  </div>
+</section>
+
+<!-- 9 GA -->
+<section id="ga">
+  <div class="sec-no">08 · GENERAL AWARENESS</div>
+  <h2>GA quick revision</h2>
+  <div class="note warn"><b>Current affairs:</b> my knowledge ends mid-2026 and I could not verify recent events, so I have not listed them. Spend at most 20 minutes on a free monthly summary for May–October 2026 in the Testbook or Adda247 app, focusing on sports, awards, appointments and government schemes. Static GK earns more per minute.</div>
+
+  <details open><summary>Physics</summary><div class="dbody"><ul class="facts">
+    <li>SI units: force newton, pressure pascal, energy joule, power watt, charge coulomb, resistance ohm, capacitance farad, inductance henry, magnetic flux weber, flux density tesla, luminous intensity candela.</li>
+    <li>Speed of light is 3 × 10⁸ m/s. Sound travels about 343 m/s in air, fastest in solids, and cannot travel in a vacuum.</li>
+    <li>Earth's escape velocity is 11.2 km/s. g = 9.8 m/s². Weight at the poles is more than at the equator.</li>
+    <li>Myopia (short sight) is corrected with a concave lens. Hypermetropia is corrected with a convex lens.</li>
+    <li>The sky is blue due to scattering. A rainbow forms by dispersion and total internal reflection. Diamonds sparkle due to total internal reflection.</li>
+    <li>V = IR, P = VI. 1 kWh = 3.6 × 10⁶ J. 1 HP = 746 W.</li>
+    <li>Absolute zero is −273.15 °C. −40 °C = −40 °F.</li>
+    <li>Instruments: hygrometer (humidity), barometer (air pressure), lactometer (milk purity), hydrometer (liquid density), anemometer (wind speed), seismograph (earthquakes), sphygmomanometer (blood pressure), pyrometer (very high temperature).</li>
+  </ul></div></details>
+
+  <details open><summary>Chemistry</summary><div class="dbody"><ul class="facts">
+    <li>pH 7 is neutral, below 7 is acidic and above 7 is basic. Human blood is about 7.4.</li>
+    <li>Acids in daily life: vinegar (acetic), lemon (citric), curd (lactic), ant sting (formic), tamarind (tartaric), tomato (oxalic).</li>
+    <li>Baking soda NaHCO₃ · washing soda Na₂CO₃·10H₂O · bleaching powder CaOCl₂ · plaster of Paris CaSO₄·½H₂O · gypsum CaSO₄·2H₂O · quicklime CaO · slaked lime Ca(OH)₂.</li>
+    <li>Laughing gas N₂O · dry ice is solid CO₂ · heavy water D₂O · LPG is mainly butane + propane · CNG is mainly methane.</li>
+    <li>Air is 78% N₂ and 21% O₂. The most abundant elements in Earth's crust are O, then Si, then Al. Aluminium is the most abundant metal.</li>
+    <li>Mercury is the only liquid metal. Bromine is the only liquid non-metal. Diamond is the hardest natural substance.</li>
+    <li>Galvanization is a zinc coating. Rusting needs both oxygen and water.</li>
+    <li>Ores: bauxite (Al), haematite (Fe), galena (Pb), cinnabar (Hg), chalcopyrite (Cu).</li>
+  </ul></div></details>
+
+  <details open><summary>Biology</summary><div class="dbody"><ul class="facts">
+    <li>Vitamin deficiencies: A night blindness · B1 beriberi · B3 pellagra · B12 pernicious anaemia · C scurvy · D rickets · K poor blood clotting.</li>
+    <li>Iodine deficiency causes goitre. Iron deficiency causes anaemia.</li>
+    <li>Blood group O is the universal donor and AB the universal recipient. Red blood cells live about 120 days.</li>
+    <li>Largest gland: liver. Largest organ: skin. Smallest bone: stapes (ear). Humans have 46 chromosomes. The heart has 4 chambers.</li>
+    <li>Bacterial diseases: TB, typhoid, cholera, tetanus, diphtheria, leprosy, plague.</li>
+    <li>Viral diseases: AIDS, polio, measles, dengue, rabies, chickenpox, hepatitis, COVID-19.</li>
+    <li>Protozoan diseases: malaria (Plasmodium, spread by the female Anopheles mosquito), kala-azar, amoebic dysentery. Fungal: ringworm, athlete's foot.</li>
+    <li>Insulin comes from the pancreas; too little causes diabetes. Mitochondria are the cell's powerhouse. Photosynthesis happens in chloroplasts.</li>
+  </ul></div></details>
+
+  <details><summary>Indian Polity</summary><div class="dbody"><ul class="facts">
+    <li>The Constitution was adopted on 26 Nov 1949 and came into force on 26 Jan 1950. The original text had 395 articles, 22 parts and 8 schedules; there are now 12 schedules.</li>
+    <li>The 42nd Amendment (1976) added "socialist", "secular" and "integrity" to the Preamble, and added the Fundamental Duties (Art 51A, Part IVA).</li>
+    <li>Fundamental Rights are in Part III, Art 12–35. Art 14 equality · Art 17 abolition of untouchability · Art 19 freedoms · Art 21 life and liberty · Art 21A education (86th Amendment, 2002) · Art 32 constitutional remedies.</li>
+    <li>Directive Principles (DPSP) are in Part IV, Art 36–51, borrowed from Ireland.</li>
+    <li>President Art 52 · impeachment Art 61 · Vice-President Art 63 (ex-officio chairman of the Rajya Sabha) · PM and council of ministers Art 75 · Attorney General Art 76.</li>
+    <li>Money bill Art 110 · budget (annual financial statement) Art 112 · Supreme Court Art 124 · CAG Art 148 · Governor Art 153 · Election Commission Art 324.</li>
+    <li>Emergencies: national Art 352, President's rule Art 356, financial Art 360. Amendment procedure Art 368.</li>
+    <li>Borrowed features: parliamentary system from the UK, Fundamental Rights and judicial review from the USA, DPSP from Ireland, concurrent list from Australia, Fundamental Duties from the USSR.</li>
+  </ul></div></details>
+
+  <details><summary>Indian History</summary><div class="dbody"><ul class="facts">
+    <li>Indus Valley sites: Harappa (Ravi), Mohenjo-daro (Indus), Lothal (dockyard), Dholavira, Kalibangan.</li>
+    <li>Buddha was born at Lumbini, attained enlightenment at Bodh Gaya and gave his first sermon at Sarnath. Mahavira was the 24th Tirthankara.</li>
+    <li>Ashoka fought the Kalinga war in 261 BCE. The Gupta period is called the golden age.</li>
+    <li>Battles of Panipat: 1526 (Babur founded Mughal rule), 1556 (Akbar), 1761 (Abdali vs the Marathas). Plassey 1757, Buxar 1764.</li>
+    <li>The Revolt of 1857 began at Meerut. The INC was founded in 1885 by A.O. Hume; its first president was W.C. Bonnerjee.</li>
+    <li>Partition of Bengal 1905 · Muslim League 1906 · Jallianwala Bagh 13 April 1919 · Non-Cooperation 1920 · Chauri Chaura 1922 · Simon Commission 1928 · Dandi March 1930 · Quit India 1942.</li>
+    <li>First Governor-General of Bengal: Warren Hastings. First Governor-General of India: William Bentinck. First Viceroy: Canning. Last Viceroy: Mountbatten. First Indian Governor-General: C. Rajagopalachari.</li>
+  </ul></div></details>
+
+  <details><summary>Geography</summary><div class="dbody"><ul class="facts">
+    <li>Largest state by area: Rajasthan. Most populous: Uttar Pradesh. Smallest: Goa.</li>
+    <li>IST is based on 82.5° E (Mirzapur). The Tropic of Cancer passes through 8 states.</li>
+    <li>Highest peak in India: Kangchenjunga. Longest river in India: Ganga. Longest river in the world: Nile. Largest ocean: Pacific.</li>
+    <li>Black soil suits cotton (Deccan). Laterite soil forms in high-rainfall areas.</li>
+    <li>National parks: Jim Corbett (first, 1936, Uttarakhand), Kaziranga (one-horned rhino, Assam), Gir (Asiatic lion, Gujarat), Sundarbans (tiger, mangroves, West Bengal).</li>
+    <li>Palk Strait separates India and Sri Lanka.</li>
+    <li>Planets: Jupiter is the largest, Venus the hottest, Mercury the closest to the Sun, and Mars the "red planet".</li>
+  </ul></div></details>
+
+  <details><summary>Economy</summary><div class="dbody"><ul class="facts">
+    <li>RBI was set up in 1935 and nationalized in 1949; its headquarters are in Mumbai. The repo rate is the rate at which RBI lends to banks.</li>
+    <li>The inflation target is CPI 4% ± 2%.</li>
+    <li>NITI Aayog replaced the Planning Commission on 1 Jan 2015. GST began on 1 July 2017.</li>
+    <li>The First Five-Year Plan (1951–56) focused on agriculture. The Second, based on the Mahalanobis model, focused on industry.</li>
+    <li>SEBI became a statutory body in 1992. NABARD was set up in 1982.</li>
+  </ul></div></details>
+</section>
+
+<!-- 10 TESTS -->
+<section id="tests">
+  <div class="sec-no">09 · PRACTICE TESTS</div>
+  <h2>Scored practice tests</h2>
+  <p class="small">Marking is the same as the exam: +1 for correct, −0.25 for wrong, 0 for blank. After you submit, you get your score, the correct answers with explanations, your weak topics and a revision task. Your last score is saved on this phone only. These questions are written in past-paper style; they are not real past-paper questions.</p>
+  <div id="quizRoot" class="quiz"></div>
+</section>
+
+<!-- 11 RESOURCES -->
+<section id="resources">
+  <div class="sec-no">10 · FREE RESOURCES</div>
+  <h2>Free practice links</h2>
+  <p class="small">I opened the IndiaBIX and Toppersexam pages; the others came from search results. Sites change their free offers often, so if one asks for payment, move to the next.</p>
+  <div class="panel">
+    <div class="res"><span class="rn">Toppersexam · free Paper-I mock (English)</span><span class="rm">Free, with a "Free Test" button; full length is not confirmed. <b>Use it for:</b> the 3 Nov 5–7 PM full mock.</span><a href="https://toppersexam.com/SSC-EXAMS/SSC-JE-MECHANICAL-ENGINEER_431.html" target="_blank" rel="noopener">toppersexam.com · SSC JE Mechanical</a></div>
+    <div class="res"><span class="rn">Adda247 · Mechanical FREE PYQs mock series</span><span class="rm">Free, login needed; 1 test listed. <b>Use it for:</b> the full mock if Toppersexam fails. The Adda247 Android app has the same test.</span><a href="https://www.adda247.com/product-testseries/94340/ssc-je-mechanical-engineering-free-pyq-mock-test-series" target="_blank" rel="noopener">adda247.com · free PYQ mock</a></div>
+    <div class="res"><span class="rn">Testbook · previous-year papers</span><span class="rm">Free PDFs, including a Mechanical paper from 4 Dec 2025, Shift 2. <b>Use it for:</b> the 3 Nov PYQ block (Mechanical part, 50 Q in 40 min). The Testbook Android app also has free tests.</span><a href="https://testbook.com/ssc-je/previous-year-papers" target="_blank" rel="noopener">testbook.com/ssc-je/previous-year-papers</a></div>
+    <div class="res"><span class="rn">Physics Wallah · previous-year papers</span><span class="rm">Free PDFs of the 2019, 2020 and 2022 Mechanical papers, all shifts. <b>Use it for:</b> extra Mechanical PYQs if you finish early.</span><a href="https://www.pw.live/ae-je/exams/ssc-je-previous-year-question-paper" target="_blank" rel="noopener">pw.live · SSC JE PYQ</a></div>
+    <div class="res"><span class="rn">AglaSem · previous papers</span><span class="rm">Free to view, for example the 16 Nov 2022 Mechanical paper. <b>Use it for:</b> a backup PYQ source.</span><a href="https://career.aglasem.com/ssc/ssc-je/previous-papers" target="_blank" rel="noopener">career.aglasem.com · SSC JE papers</a></div>
+    <div class="res"><span class="rn">PracticeMock · SSC JE ME</span><span class="rm">One free mock; the rest are paid. <b>Use it for:</b> only if the other mocks fail.</span><a href="https://www.practicemock.com/ssc-je-me-test-series/" target="_blank" rel="noopener">practicemock.com · SSC JE ME</a></div>
+    <div class="res"><span class="rn">IndiaBIX · Mechanical MCQs by subject</span><span class="rm">Free, no login, works well on a phone browser. 17 subjects, including Thermodynamics, SOM, Hydraulic Machines and Production. <b>Use it for:</b> the subject-wise practice in each study block.</span><a href="https://www.indiabix.com/mechanical-engineering/questions-and-answers/" target="_blank" rel="noopener">indiabix.com · Mechanical Engineering</a></div>
+    <div class="res"><span class="rn">IndiaBIX · Reasoning and GK</span><span class="rm">Free. <b>Use it for:</b> reasoning set 2 (series, coding, blood relations) and GK practice.</span><span><a href="https://www.indiabix.com/verbal-reasoning/questions-and-answers/" target="_blank" rel="noopener">Verbal reasoning</a> · <a href="https://www.indiabix.com/non-verbal-reasoning/questions-and-answers/" target="_blank" rel="noopener">Non-verbal</a> · <a href="https://www.indiabix.com/general-knowledge/questions-and-answers/" target="_blank" rel="noopener">General knowledge</a></span></div>
+    <div class="res"><span class="rn">SSC official</span><span class="rm">Admit card, notice, corrigenda and, later, answer keys.</span><a href="https://ssc.gov.in" target="_blank" rel="noopener">ssc.gov.in</a></div>
+  </div>
+  <p class="small">Free PDF notes: don't search for full notes now; there's no time to use them. This page is your notes. Use PYQ PDFs only.</p>
+</section>
+
+<!-- 12 STRATEGY -->
+<section id="strategy">
+  <div class="sec-no">11 · EXAM STRATEGY</div>
+  <h2>How to spend the 120 minutes</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Round</th><th>Section</th><th class="num">Minutes</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>General Awareness</td><td class="num">10</td><td>Answer only what you know instantly. Never think longer than 15 seconds.</td></tr>
+      <tr><td>2</td><td>Mechanical, first pass</td><td class="num">55</td><td>Theory and one-step formula questions. Mark any calculation longer than 90 seconds for review.</td></tr>
+      <tr><td>3</td><td>Reasoning</td><td class="num">35</td><td>Series, coding, ranking, clock and calendar first. Leave puzzles for last.</td></tr>
+      <tr><td>4</td><td>Marked questions</td><td class="num">20</td><td>Mechanical numericals first, then reasoning puzzles.</td></tr>
+    </tbody></table></div>
+  <div class="panel">
+    <h3>Negative marking, with the numbers</h3>
+    <ul>
+      <li>A blind guess among 4 options is worth +0.06 marks on average. With one option ruled out it is worth +0.17; with two ruled out, +0.38.</li>
+      <li><b>Rule:</b> guess only after ruling out at least one option. Keep blind guesses to 10 or fewer, at the very end.</li>
+      <li>Example target: 150 attempted at 85% accuracy gives 127.5 right and 22.5 wrong, so 127.5 − 5.6 ≈ <b>122 marks</b>.</li>
+      <li>If two options both look right, go back to the trap line for that topic. Examiners build wrong options from those traps.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>Skip a question when</h3>
+    <ul>
+      <li>It needs steam tables or a chart you don't remember.</li>
+      <li>You have spent 90 seconds and still don't see the formula.</li>
+      <li>It is from a Category C topic and is not one line long.</li>
+    </ul>
+    <h3>Avoiding calculation mistakes</h3>
+    <ul>
+      <li>Convert units before anything else: K for temperature, m and N (or mm and N with MPa), radians.</li>
+      <li>Estimate the size of the answer first. Options are often 10× apart (a units error) or 2×/4× apart (a ratio error).</li>
+      <li>Use the rough sheet in columns, one question per box with its number, so you can recheck it.</li>
+      <li>Before you click, read the question's last line again: is it asking for diameter or radius, gauge or absolute, maximum or average?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 13 CHECKLIST -->
+<section id="checklist">
+  <div class="sec-no">12 · EXAM-DAY CHECKLIST</div>
+  <h2>Exam-day checklist</h2>
+  <div class="panel">
+    <ul class="check">
+      <li>Printed admit card. Read every instruction printed on it the night before.</li>
+      <li>Original photo ID whose name and date of birth match the admit card.</li>
+      <li>Passport-size photos, if the admit card asks for them.</li>
+      <li>Leave early enough to reach before the reporting time; gates close before the exam starts.</li>
+      <li>No phone, smartwatch, calculator or paper inside. Leave them at home or with someone outside.</li>
+      <li>Wear simple clothes. Eat a light meal 2 hours before the exam.</li>
+      <li>At the computer: check the name and photo on screen, and read the question palette colours (answered, marked, not answered).</li>
+      <li>In the last 2 minutes, make sure nothing is "marked" without an answer you mean to give. Check how your shift's on-screen instructions treat "marked for review" answers.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>Sources: SSC JE 2026 notice coverage on <a href="https://testbook.com/news/ssc-je-2026-notification-out/" target="_blank" rel="noopener">Testbook</a>, <a href="https://www.practicemock.com/blog/ssc-je/" target="_blank" rel="noopener">PracticeMock</a> and <a href="https://www.adda247.com/engineering-jobs/ssc-je-2026-major-changes/" target="_blank" rel="noopener">Adda247</a>. Exam dates from <a href="https://www.adda247.com/engineering-jobs/ssc-je-exam-date-2026/" target="_blank" rel="noopener">Adda247</a>. Subject trends from <a href="https://testbook.com/ssc-je/mechanical-subject-wise-weightage" target="_blank" rel="noopener">Testbook weightage</a>. 2025 review from <a href="https://www.pw.live/ae-je/exams/ssc-je-cbt-1-mechanical-exam-review-2025" target="_blank" rel="noopener">Physics Wallah</a>. Check anything that matters against <a href="https://ssc.gov.in" target="_blank" rel="noopener">ssc.gov.in</a>.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  function store(){ try{ return window.localStorage; }catch(e){ return null; } }
+  function load(k, d){ try{ var s=store(); var v=s&&s.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
+  function save(k, v){ try{ var s=store(); if(s) s.setItem(k, JSON.stringify(v)); }catch(e){} }
+
+  /* timetable ticks */
+  var ticks = load("sscje-tt", {});
+  document.querySelectorAll('.blk input[type=checkbox]').forEach(function(cb){
+    var blk = cb.closest('.blk');
+    if (ticks[cb.id]) { cb.checked = true; blk.classList.add('done'); }
+    cb.addEventListener('change', function(){
+      ticks[cb.id] = cb.checked; blk.classList.toggle('done', cb.checked); save("sscje-tt", ticks);
+    });
+  });
+
+  var REVISE = {
+    "Thermodynamics": "Re-read the Thermodynamics card and formula sheet. Write the Carnot, COP and first-law formulas 3 times. Always convert to Kelvin.",
+    "IC Engines": "Re-read the IC Engines card: SI vs CI, octane vs cetane, knock factors, and the Otto/Diesel comparison.",
+    "RAC": "Re-read the RAC card: 1 TR = 3.5 kW, the VCR cycle order, refrigerant numbering (+90 rule).",
+    "Steam & Boilers": "Re-read the Boilers card: mountings vs accessories and the critical pressure ratios (0.528 / 0.546 / 0.577).",
+    "Fluid Mechanics": "Re-read the Fluid Mechanics card. Practise continuity (V ∝ 1/d²) and Reynolds number. Do 10 IndiaBIX Hydraulics questions.",
+    "Hydraulic Machines": "Re-read the Hydraulic Machines card: Pelton/Francis/Kaplan by head and Ns, draft tube, NPSH.",
+    "SOM": "Re-read the SOM card. Redraw the 4 BM cases and 4 deflection cases. Revise E-G-K relations and Euler effective lengths.",
+    "Engg Mechanics": "Re-read the Engineering Mechanics card: friction angle = angle of repose, projectile formulas.",
+    "Theory of Machines": "Re-read the ToM card: inversions list, belt e^(μθ), governor terms.",
+    "Machine Design": "Re-read the Machine Design card: theories of failure, which suits brittle vs ductile.",
+    "Production": "Re-read the Production card: Taylor's law, flames, TIG/MIG, punching vs blanking.",
+    "Materials": "Re-read the Materials card: iron-carbon points, BCC/FCC metals, heat treatment.",
+    "Heat Transfer": "Re-read the Heat Transfer card: T⁴ law, critical radius, Biot vs Nusselt.",
+    "Series": "Re-read Number series and Alphabet shortcuts. Do 15 series questions on IndiaBIX.",
+    "Coding": "Re-read the Coding shortcut. Do 10 coding questions on IndiaBIX.",
+    "Analogy & Odd one": "Check squares, cubes and primes first in analogy and odd-one-out questions.",
+    "Ranking & Direction": "Re-read the Ranking formula and draw 5 direction problems.",
+    "Blood relation": "Practise 5 blood-relation questions by drawing family trees.",
+    "Clock & Calendar": "Memorize θ = |30H − 5.5M| and the odd-days rule.",
+    "Math operations": "Rewrite the expression with the swapped symbols before calculating, then apply BODMAS.",
+    "Syllogism": "Draw minimal Venn diagrams. Remember that 'All A are B' gives 'Some B are A'.",
+    "Missing number": "Try sum, product and (a × b) + c across rows and columns.",
+    "Dictionary order": "Compare letter by letter. Do 5 practice questions.",
+    "Physics": "Re-read the Physics list (units, lenses, instruments).",
+    "Chemistry": "Re-read the Chemistry list (formulas of common compounds, acids, ores).",
+    "Biology": "Re-read the Biology list (vitamins, diseases by cause).",
+    "Polity": "Re-read the Polity list. Make a 10-item article-number flashcard set.",
+    "History": "Re-read the History list. Memorize the dates line twice.",
+    "Geography": "Re-read the Geography list.",
+    "Economy": "Re-read the Economy list."
+  };
+
+  var TESTS = [
+    { id:"me1", name:"Test 1 · Mechanical A", sub:"Thermo · IC engines · RAC · Fluids · Hydraulic machines", mins:15, qs:[
+      {t:"IC Engines", q:"Air-standard Otto cycle efficiency with compression ratio 8 (γ = 1.4) is about:", o:["43.5%","56.5%","62.0%","51.2%"], a:1, e:"η = 1 − 1/8^0.4 = 1 − 1/2.297 = 0.565."},
+      {t:"Thermodynamics", q:"A Carnot engine works between 527 °C and 27 °C. Its efficiency is:", o:["94.9%","62.5%","37.5%","50.0%"], a:1, e:"Use Kelvin: 1 − 300/800 = 0.625. 94.9% is the trap from using °C."},
+      {t:"IC Engines", q:"For the same compression ratio and heat input, the correct order of efficiency is:", o:["Diesel > Dual > Otto","Otto > Dual > Diesel","Dual > Otto > Diesel","All equal"], a:1, e:"At the same r, Otto is the most efficient. At the same maximum pressure, the order reverses."},
+      {t:"Thermodynamics", q:"A Carnot refrigerator works between −23 °C and 27 °C. Its COP is:", o:["6","5","0.83","1.2"], a:1, e:"COP_R = T2/(T1 − T2) = 250/50 = 5. A heat pump would give 6."},
+      {t:"Thermodynamics", q:"In a throttling process, which quantity stays constant?", o:["Entropy","Pressure","Enthalpy","Temperature (for steam)"], a:2, e:"Throttling is isenthalpic: h1 = h2. Entropy increases."},
+      {t:"RAC", q:"One tonne of refrigeration is approximately:", o:["1 kW","3.5 kW","12 kW","210 kW"], a:1, e:"1 TR = 210 kJ/min = 3.5 kW."},
+      {t:"IC Engines", q:"The usual firing order of a 4-cylinder in-line engine is:", o:["1-2-3-4","1-3-4-2","1-4-2-3","1-2-4-3"], a:1, e:"1-3-4-2 is the standard firing order (1-2-4-3 is also used, but 1-3-4-2 is the textbook answer)."},
+      {t:"IC Engines", q:"Cetane number is a measure of:", o:["Anti-knock quality of petrol","Ignition quality of diesel","Viscosity of lubricating oil","Calorific value of fuel"], a:1, e:"Cetane is for CI (diesel) fuels; octane is for SI (petrol) fuels."},
+      {t:"Steam & Boilers", q:"The critical pressure ratio for flow of superheated steam through a nozzle is about:", o:["0.528","0.546","0.577","0.625"], a:1, e:"0.528 for air, 0.546 for superheated steam, 0.577 for saturated steam."},
+      {t:"Steam & Boilers", q:"Which of these is a boiler mounting (not an accessory)?", o:["Economiser","Superheater","Safety valve","Air preheater"], a:2, e:"Mountings are safety devices. Economiser, superheater and air preheater are accessories."},
+      {t:"Thermodynamics", q:"A gas receives 100 kJ of heat and does 40 kJ of work. The change in internal energy is:", o:["+140 kJ","+60 kJ","−60 kJ","+40 kJ"], a:1, e:"ΔU = Q − W = 100 − 40 = 60 kJ."},
+      {t:"Fluid Mechanics", q:"Gauge pressure at 5 m depth in water (g = 9.81 m/s²) is:", o:["4.905 kPa","49.05 kPa","490.5 kPa","150.4 kPa"], a:1, e:"p = ρgh = 1000 × 9.81 × 5 = 49,050 Pa. 150.4 kPa would be the absolute pressure."},
+      {t:"Fluid Mechanics", q:"For laminar flow in a pipe with Re = 1600, the Darcy friction factor is:", o:["0.01","0.04","0.064","0.16"], a:1, e:"f = 64/Re = 64/1600 = 0.04."},
+      {t:"Fluid Mechanics", q:"Which is NOT an assumption of Bernoulli's equation?", o:["Steady flow","Incompressible flow","Viscous flow","Flow along a streamline"], a:2, e:"Bernoulli assumes an ideal, non-viscous fluid."},
+      {t:"Fluid Mechanics", q:"If a pipe's diameter is halved, the velocity of flow (same discharge) becomes:", o:["Half","Double","4 times","8 times"], a:2, e:"A ∝ d², so the area becomes 1/4 and V becomes 4 times."},
+      {t:"Hydraulic Machines", q:"A Pelton wheel is:", o:["Reaction turbine, low head","Impulse turbine, high head","Axial flow, low head","Mixed flow, medium head"], a:1, e:"Pelton is an impulse turbine for high head and low specific speed."},
+      {t:"Hydraulic Machines", q:"A Kaplan turbine is best suited for:", o:["High head, low discharge","Low head, high discharge","Medium head, medium discharge","Any head"], a:1, e:"Kaplan is an axial-flow reaction turbine for low head and large flow, with high Ns."},
+      {t:"Hydraulic Machines", q:"Specific speed of a centrifugal pump is given by:", o:["N√P / H^(5/4)","N√Q / H^(3/4)","N√Q / H^(5/4)","N√P / H^(3/4)"], a:1, e:"Pump: N√Q/H^(3/4). Turbine: N√P/H^(5/4)."},
+      {t:"Hydraulic Machines", q:"Cavitation in a centrifugal pump is avoided by keeping:", o:["NPSH available < NPSH required","NPSH available > NPSH required","Suction lift as high as possible","Speed as high as possible"], a:1, e:"NPSH available must exceed NPSH required. Keep suction lift low."},
+      {t:"Fluid Mechanics", q:"The coefficient of discharge of a venturimeter is typically:", o:["0.60–0.65","0.95–0.98","0.30–0.40","1.2–1.5"], a:1, e:"Venturimeter Cd is about 0.95–0.98. An orifice meter's is about 0.6."}
+    ]},
+    { id:"me2", name:"Test 2 · Mechanical B", sub:"SOM · Mechanics · ToM · Design · Production · Materials · HT", mins:15, qs:[
+      {t:"SOM", q:"For a material with E = 200 GPa and Poisson's ratio 0.25, the modulus of rigidity G is:", o:["50 GPa","80 GPa","100 GPa","133 GPa"], a:1, e:"G = E/2(1 + μ) = 200/2.5 = 80 GPa."},
+      {t:"SOM", q:"Maximum bending moment in a simply supported beam of span L with UDL w per metre is:", o:["wL²/2","wL²/8","wL/4","wL²/12"], a:1, e:"SSB with UDL: wL²/8 at mid-span. wL²/2 is for a cantilever."},
+      {t:"SOM", q:"Deflection at the free end of a cantilever with point load W at the free end is:", o:["WL³/48EI","WL³/3EI","WL³/8EI","5WL³/384EI"], a:1, e:"Cantilever with end load: WL³/3EI. WL³/48EI is SSB with a central load."},
+      {t:"SOM", q:"Effective length of a column with both ends fixed (actual length L) is:", o:["2L","L","L/√2","L/2"], a:3, e:"Fixed-fixed gives L/2, so the Euler load is 4 times that of a hinged-hinged column."},
+      {t:"SOM", q:"In a thin cylinder under internal pressure, hoop stress is ___ the longitudinal stress.", o:["Equal to","Half","Twice","Four times"], a:2, e:"Hoop pd/2t is twice longitudinal pd/4t."},
+      {t:"SOM", q:"For a rectangular beam section, maximum shear stress equals:", o:["Average shear stress","1.5 × average","4/3 × average","2 × average"], a:1, e:"Rectangle 1.5 ×; circle 4/3 ×."},
+      {t:"SOM", q:"A fully restrained steel bar (α = 12×10⁻⁶/°C, E = 200 GPa) is heated by 50 °C. The thermal stress is:", o:["60 MPa","120 MPa","240 MPa","12 MPa"], a:1, e:"σ = EαΔT = 200,000 × 12×10⁻⁶ × 50 = 120 MPa."},
+      {t:"SOM", q:"A shaft at 600 rpm transmits 500 N·m torque. Power transmitted is about:", o:["3.14 kW","31.4 kW","300 kW","5 kW"], a:1, e:"P = 2πNT/60 = 2π × 600 × 500/60 = 31,416 W."},
+      {t:"Engg Mechanics", q:"The angle of repose is equal to the:", o:["Angle of friction","Angle of inclination of the resultant","Complement of the angle of friction","Twice the angle of friction"], a:0, e:"At the angle of repose, tan θ = μ = tan φ."},
+      {t:"Theory of Machines", q:"Grashof's condition for a four-bar chain (s shortest, l longest, p and q the others) is:", o:["s + l > p + q","s + l ≤ p + q","s + p = l + q","l − s < p − q"], a:1, e:"s + l ≤ p + q allows at least one link to rotate fully."},
+      {t:"Theory of Machines", q:"The Whitworth quick-return mechanism is an inversion of the:", o:["Four-bar chain","Single slider-crank chain","Double slider-crank chain","Crossed slider chain"], a:1, e:"Whitworth and crank-and-slotted-lever come from the single slider-crank. Oldham coupling and elliptical trammel come from the double slider-crank."},
+      {t:"Theory of Machines", q:"For a belt drive, the ratio of tight-side to slack-side tension is:", o:["μθ","e^(μθ)","e^(θ/μ)","1 + μθ"], a:1, e:"T1/T2 = e^(μθ), with θ in radians."},
+      {t:"Theory of Machines", q:"A governor is called isochronous when:", o:["It hunts","Its speed range is zero","It is very insensitive","It has no spring"], a:1, e:"Isochronous means the equilibrium speed is the same at every radius, so the range is zero."},
+      {t:"Machine Design", q:"The theory of failure best suited for ductile materials is:", o:["Maximum principal stress","Maximum principal strain","Distortion energy (von Mises)","Maximum strain energy"], a:2, e:"Von Mises suits ductile materials best. Maximum principal stress suits brittle ones."},
+      {t:"Production", q:"In Taylor's equation VTⁿ = C with n = 0.5, if cutting speed is doubled, tool life becomes:", o:["1/2","1/4","1/8","2 times"], a:1, e:"T2/T1 = (V1/V2)^(1/n) = (1/2)² = 1/4."},
+      {t:"Production", q:"A neutral oxy-acetylene flame has an oxygen : acetylene ratio of:", o:["1 : 1","2 : 1","1 : 2","1.5 : 1"], a:0, e:"Neutral is 1:1. Extra O₂ gives an oxidizing flame; extra acetylene gives a carburizing flame."},
+      {t:"Production", q:"In TIG welding, the electrode is:", o:["Consumable steel wire","Non-consumable tungsten","Consumable copper","Carbon"], a:1, e:"TIG uses a non-consumable tungsten electrode. MIG uses a consumable wire."},
+      {t:"Materials", q:"The carbon content of eutectoid steel is about:", o:["0.025%","0.8%","2.0%","4.3%"], a:1, e:"The eutectoid point is 0.8% C at 727 °C (pearlite). 4.3% is the eutectic point."},
+      {t:"Materials", q:"The crystal structure of γ-iron (austenite) is:", o:["BCC","FCC","HCP","Simple cubic"], a:1, e:"γ-iron is FCC; α-iron is BCC."},
+      {t:"Heat Transfer", q:"If the absolute temperature of a black body is doubled, its emissive power becomes:", o:["2 times","4 times","8 times","16 times"], a:3, e:"E ∝ T⁴, and 2⁴ = 16."}
+    ]},
+    { id:"rs1", name:"Test 3 · Reasoning", sub:"Series · coding · ranking · direction · clock · syllogism", mins:15, qs:[
+      {t:"Series", q:"2, 6, 12, 20, 30, ?", o:["40","42","44","36"], a:1, e:"The differences are 4, 6, 8, 10, so the next is 12. It is also n(n+1)."},
+      {t:"Series", q:"3, 9, 27, 81, ?", o:["162","243","324","180"], a:1, e:"Each term is ×3."},
+      {t:"Series", q:"B, E, H, K, ?", o:["M","N","O","L"], a:1, e:"Each letter moves +3: K (11) + 3 = N (14)."},
+      {t:"Coding", q:"If CAT is coded as DBU, how is DOG coded?", o:["EPH","CNF","EPI","DPH"], a:0, e:"Each letter moves +1."},
+      {t:"Analogy & Odd one", q:"Find the odd one: 49, 64, 81, 98", o:["49","64","81","98"], a:3, e:"98 is not a perfect square."},
+      {t:"Analogy & Odd one", q:"4 : 64 :: 5 : ?", o:["25","100","125","120"], a:2, e:"The pattern is n³: 5³ = 125."},
+      {t:"Ranking & Direction", q:"Ravi is 12th from the left and 18th from the right in a row. How many people are in the row?", o:["30","29","28","31"], a:1, e:"12 + 18 − 1 = 29."},
+      {t:"Ranking & Direction", q:"A man walks 5 km north, turns right and walks 3 km, then turns right and walks 5 km. Where is he from the start?", o:["3 km West","3 km East","5 km South","8 km East"], a:1, e:"The north and south legs cancel, leaving 3 km east."},
+      {t:"Blood relation", q:"Pointing to a boy, Rita says, ‘He is the son of my mother’s only son.’ The boy is Rita’s:", o:["Brother","Son","Nephew","Cousin"], a:2, e:"Rita's mother's only son is Rita's brother. His son is Rita's nephew."},
+      {t:"Clock & Calendar", q:"The angle between the hands of a clock at 3:30 is:", o:["90°","75°","60°","105°"], a:1, e:"|30 × 3 − 5.5 × 30| = |90 − 165| = 75°."},
+      {t:"Math operations", q:"If + means ×, × means −, − means ÷ and ÷ means +, then 8 + 2 ÷ 6 − 3 × 4 = ?", o:["14","10","18","12"], a:0, e:"Rewritten: 8 × 2 + 6 ÷ 3 − 4 = 16 + 2 − 4 = 14."},
+      {t:"Dictionary order", q:"Dictionary order of 1. Engine 2. Energy 3. Enter 4. Enjoy is:", o:["2, 1, 4, 3","1, 2, 4, 3","2, 1, 3, 4","1, 2, 3, 4"], a:0, e:"The third letters are e (Energy) < g (Engine) < j (Enjoy) < t (Enter)."},
+      {t:"Syllogism", q:"All pens are books. Some books are tables. Conclusions: I. Some pens are tables. II. Some tables are books.", o:["Only I follows","Only II follows","Both follow","Neither follows"], a:1, e:"II is the reverse of 'Some books are tables'. I is only possible, not certain."},
+      {t:"Clock & Calendar", q:"1 January 2025 was a Wednesday. What day was 1 January 2026?", o:["Wednesday","Thursday","Friday","Tuesday"], a:1, e:"2025 is not a leap year, so the day moves +1."},
+      {t:"Missing number", q:"3, 4, 12 | 5, 6, 30 | 7, 8, ?", o:["15","56","54","64"], a:1, e:"The third number is the product of the first two: 7 × 8 = 56."}
+    ]},
+    { id:"ga1", name:"Test 4 · General Awareness", sub:"Science · Polity · History · Geography · Economy", mins:10, qs:[
+      {t:"Physics", q:"The SI unit of pressure is:", o:["Newton","Pascal","Joule","Bar"], a:1, e:"1 Pa = 1 N/m². The bar is not an SI unit."},
+      {t:"Physics", q:"Myopia (short-sightedness) is corrected using a:", o:["Convex lens","Concave lens","Cylindrical lens","Bifocal lens"], a:1, e:"Concave lens for myopia; convex lens for hypermetropia."},
+      {t:"Physics", q:"The sky appears blue because of:", o:["Reflection","Refraction","Scattering of light","Total internal reflection"], a:2, e:"Rayleigh scattering affects shorter (blue) wavelengths more."},
+      {t:"Chemistry", q:"The chemical formula of baking soda is:", o:["Na₂CO₃","NaHCO₃","NaOH","CaCO₃"], a:1, e:"Baking soda is NaHCO₃; washing soda is Na₂CO₃·10H₂O."},
+      {t:"Chemistry", q:"The most abundant gas in Earth's atmosphere is:", o:["Oxygen","Nitrogen","Argon","Carbon dioxide"], a:1, e:"Nitrogen is about 78%."},
+      {t:"Chemistry", q:"Plaster of Paris is:", o:["CaSO₄·2H₂O","CaSO₄·½H₂O","CaCO₃","CaOCl₂"], a:1, e:"CaSO₄·2H₂O is gypsum and CaOCl₂ is bleaching powder."},
+      {t:"Biology", q:"Deficiency of vitamin C causes:", o:["Rickets","Scurvy","Beriberi","Night blindness"], a:1, e:"Rickets is D, beriberi is B1, night blindness is A."},
+      {t:"Biology", q:"Malaria is caused by:", o:["A virus","A bacterium","Plasmodium (a protozoan)","A fungus"], a:2, e:"Plasmodium is spread by the female Anopheles mosquito."},
+      {t:"Biology", q:"The universal donor blood group is:", o:["A","B","AB","O"], a:3, e:"O is the universal donor; AB is the universal recipient."},
+      {t:"Polity", q:"Fundamental Duties were added by which amendment?", o:["44th","42nd","86th","73rd"], a:1, e:"The 42nd Amendment (1976) added Art 51A."},
+      {t:"Polity", q:"The Right to Constitutional Remedies is in Article:", o:["14","21","32","19"], a:2, e:"Art 32, which Ambedkar called the 'heart and soul' of the Constitution."},
+      {t:"Polity", q:"National Emergency is declared under Article:", o:["352","356","360","368"], a:0, e:"Art 356 is President's rule, 360 financial emergency, 368 amendment."},
+      {t:"Polity", q:"The ex-officio Chairman of the Rajya Sabha is the:", o:["President","Vice-President","Speaker","Prime Minister"], a:1, e:"Art 64."},
+      {t:"History", q:"The First Battle of Panipat was fought in:", o:["1526","1556","1761","1757"], a:0, e:"1526, Babur vs Ibrahim Lodi."},
+      {t:"History", q:"The first president of the Indian National Congress was:", o:["A.O. Hume","Dadabhai Naoroji","W.C. Bonnerjee","Surendranath Banerjee"], a:2, e:"Hume founded the INC in 1885; Bonnerjee presided over its first session."},
+      {t:"History", q:"The Jallianwala Bagh massacre took place in:", o:["1905","1919","1922","1930"], a:1, e:"13 April 1919, at Amritsar."},
+      {t:"Geography", q:"Indian Standard Time is based on the longitude:", o:["75° E","82.5° E","90° E","68.7° E"], a:1, e:"82.5° E, passing near Mirzapur."},
+      {t:"Geography", q:"The largest Indian state by area is:", o:["Madhya Pradesh","Maharashtra","Rajasthan","Uttar Pradesh"], a:2, e:"Rajasthan."},
+      {t:"Economy", q:"NITI Aayog replaced the Planning Commission in:", o:["2014","2015","2016","2017"], a:1, e:"1 January 2015."},
+      {t:"Economy", q:"GST was implemented in India on:", o:["1 April 2017","1 July 2017","1 January 2018","1 July 2016"], a:1, e:"1 July 2017."}
+    ]}
+  ];
+
+  var root = document.getElementById("quizRoot");
+  var results = load("sscje-results", {});
+
+  TESTS.forEach(function(test){
+    var card = document.createElement("div"); card.className = "panel"; card.id = "card-" + test.id;
+    var last = results[test.id];
+    var html = '<div class="qhead"><h3>' + test.name + '</h3><span class="last" id="last-' + test.id + '">' +
+      (last ? ('Last score: ' + last.score + ' / ' + test.qs.length) : 'Not taken yet') + '</span></div>' +
+      '<p class="small">' + test.sub + ' · ' + test.qs.length + ' questions · aim for ' + test.mins + ' minutes</p>';
+    html += '<form id="form-' + test.id + '" class="quiz">';
+    test.qs.forEach(function(q, i){
+      html += '<div class="qitem" id="' + test.id + '-q' + i + '"><p class="qtext"><span class="qn">' + (i+1) + '.</span>' + q.q + '</p><div class="opts">';
+      q.o.forEach(function(opt, j){
+        var oid = test.id + '-q' + i + '-o' + j;
+        html += '<label class="opt" for="' + oid + '"><input type="radio" name="' + test.id + '-q' + i + '" id="' + oid + '" value="' + j + '"><span>' + opt + '</span></label>';
+      });
+      html += '</div><p class="expl" hidden></p></div>';
+    });
+    html += '<div class="btns"><button type="submit">Submit and score</button><button type="button" class="ghost" data-reset="' + test.id + '">Clear answers</button></div>';
+    html += '<div class="result" id="res-' + test.id + '" hidden></div></form>';
+    card.innerHTML = html;
+    root.appendChild(card);
+
+    var form = card.querySelector("form");
+    form.addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var right = 0, wrong = 0, blank = 0, weak = {};
+      test.qs.forEach(function(q, i){
+        var item = document.getElementById(test.id + '-q' + i);
+        var picked = form.querySelector('input[name="' + test.id + '-q' + i + '"]:checked');
+        var labels = item.querySelectorAll(".opt");
+        labels.forEach(function(l){ l.classList.remove("right","wrong"); });
+        labels[q.a].classList.add("right");
+        var ex = item.querySelector(".expl");
+        var status;
+        if (!picked) { blank++; status = "Not answered."; weak[q.t] = (weak[q.t]||0) + 1; }
+        else if (+picked.value === q.a) { right++; status = "Correct."; }
+        else { wrong++; status = "Wrong."; labels[+picked.value].classList.add("wrong"); weak[q.t] = (weak[q.t]||0) + 1; }
+        ex.innerHTML = "<b>" + status + "</b> Answer: " + q.o[q.a] + ". " + q.e;
+        ex.hidden = false;
+      });
+      var score = right - wrong * 0.25;
+      var rEl = document.getElementById("res-" + test.id);
+      var weakKeys = Object.keys(weak).sort(function(a,b){ return weak[b]-weak[a]; });
+      var pct = Math.round(score / test.qs.length * 100);
+      var verdict = pct >= 75 ? "Strong. Keep this section for the first pass in the exam." :
+                    pct >= 55 ? "Workable. Fix the weak topics below before your next block." :
+                    "Weak. Re-read the cards listed below, then retake this test.";
+      var h = '<div class="score">' + score.toFixed(2) + ' / ' + test.qs.length + '</div>' +
+              '<p>' + right + ' right · ' + wrong + ' wrong (−' + (wrong*0.25).toFixed(2) + ') · ' + blank + ' blank · ' + pct + '%</p><p>' + verdict + '</p>';
+      if (weakKeys.length) {
+        h += '<p class="k">Weak topics and revision task</p><ul>';
+        weakKeys.forEach(function(k){ h += '<li><b>' + k + '</b> (' + weak[k] + ' missed): ' + (REVISE[k] || "Re-read this topic's card.") + '</li>'; });
+        h += '</ul>';
+      } else { h += '<p>No weak topics in this set. Move to a past paper.</p>'; }
+      h += '<p class="small">Wrong options are marked in red, right ones in green. Add each miss to your error log.</p>';
+      rEl.innerHTML = h; rEl.hidden = false;
+      rEl.scrollIntoView({behavior: "smooth", block: "nearest"});
+      results[test.id] = { score: score.toFixed(2) };
+      save("sscje-results", results);
+      document.getElementById("last-" + test.id).textContent = "Last score: " + score.toFixed(2) + " / " + test.qs.length;
+    });
+    card.querySelector('[data-reset]').addEventListener("click", function(){
+      form.reset();
+      form.querySelectorAll(".opt").forEach(function(l){ l.classList.remove("right","wrong"); });
+      form.querySelectorAll(".expl").forEach(function(e){ e.hidden = true; });
+      document.getElementById("res-" + test.id).hidden = true;
+    });
+  });
+})();
+</script>
