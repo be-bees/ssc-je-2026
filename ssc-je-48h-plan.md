@@ -1,12 +1,12 @@
 # SSC JE 48-Hour Plan
 
-**Agathiyan Venkatraman · Mechanical · Paper I · 4 Nov 2026 · 5–7 PM shift**
+**Agathiyan Venkatraman · Mechanical · Paper I · Wed 4 Nov 2026 · Shift III, 5–7 PM · report 3:45 PM · gate closes 4:45 PM**
 
 Crash revision for SSC JE 2026 Paper I (Mechanical). Work through it in this order: pattern, timetable, then the topic card and formula sheet for each study block. The answers to the practice tests are at the end.
 
-Interactive version (tests score themselves): https://claude.ai/artifact/5Spe5rTibwaPHoZHUEcNaN
+Interactive version (tests score themselves): open `index.html` from this repo in any browser. It works offline.
 
-Labels: **[Confirmed]** = in the 2026 coverage and several sources. **[Reported]** = from coaching sites; I could not open the official PDF. **[Estimate]** = my judgement.
+Labels: **[Confirmed]** = checked in the official SSC notice (Junior Engineer Examination 2026, F. No. HQ-C-3019/1/2026-C-3, uploaded 2 Sep 2026), SSC's later notices, or your admit card. **[Reported]** = from coaching sites only. **[Estimate]** = my judgement.
 
 ---
 
@@ -19,45 +19,59 @@ Labels: **[Confirmed]** = in the 2026 coverage and several sources. **[Reported]
 | General Engineering (Mechanical) | 100 | 100 | Half the paper |
 | **Total** | **200** | **200** | 2 hours (120 min), CBT, English/Hindi |
 
-- **[Confirmed] Marking:** +1 for correct, **−0.25** for wrong, 0 for unattempted.
-- **[Confirmed] Dates:** Paper I runs 2–6 Nov 2026. Shifts are 9–11 AM, 1–3 PM and 5–7 PM. Paper II is expected in December 2026.
-- **[Reported] Paper I now only qualifies you.** From 2026, Paper I marks are reported to not count in the final merit list. They decide who is shortlisted for Paper II (100 Q, 300 marks, −1 per wrong). Final merit uses Paper II only.
-- **[Reported] Minimum qualifying marks:** UR 30%, OBC/EWS 25%, others 20%. That is 60/50/40 out of 200.
-- **[Estimate] What this means for you:** crossing 30% is not enough. Paper II seats go category-wise in merit order of Paper I (normalized) marks. Coaching estimates of "good attempts" for the 2025 Mechanical paper were about 142–160 out of 200. Aim for **120+ net marks**.
-- **Normalization:** scores are normalized across shifts.
+- **[Confirmed] Marking:** +1 for correct, **−0.25** for wrong, 0 for unattempted (notice para 13.10). Questions are in English and Hindi only.
+- **[Confirmed] Dates:** Paper I (Mechanical, Civil, Electrical, IMD papers) runs 2–6 Nov 2026 (SSC corrigendum of 26 Oct 2026). JE Telecom sits separately on 30 Nov–1 Dec. Paper II is tentatively December 2026.
+- **[Confirmed] Paper I only qualifies you.** It decides who is shortlisted, category-wise, for Paper II (100 Q, 300 marks, −1 per wrong). Only normalized Paper II marks decide final merit (paras 13.7, 13.16, 18.2).
+- **[Confirmed] Minimum qualifying marks:** UR 30%, OBC/EWS 25%, all others 20% (para 18.1). Your admit card says **OBC**, so your floor is **25% = 50/200**.
+- **[Confirmed] On-screen scientific calculator** for the whole exam (icon to the left of your photo), and an **on-screen steam table** under "Useful Data", next to "Instructions" (paras 13.11–13.12). No physical calculator or table is allowed.
+- **[Confirmed] Normalization:** scores are normalized across shifts, and Mechanical and Electrical scores are also normalized against each other (paras 13.16, 13.18).
+- **[Estimate] What this means for you:** crossing 50 marks is not enough. Paper II seats go category-wise in merit order of normalized Paper I marks. Coaching estimates of "good attempts" for the 2025 Mechanical paper were about 142–160 out of 200. Aim for **120+ net marks**.
 
-> **Your exam: 4 Nov, 5–7 PM shift.** The timetable puts the full mock on 3 Nov at 5–7 PM, so you practise at the same time of day as the real exam. The reporting time printed on your admit card decides when you must leave. Check the official notice on https://ssc.gov.in for the exact qualifying rules.
+> **Your exam: Wed 4 Nov, Shift III, 5–7 PM. Reporting time 3:45 PM. Entry closes 4:45 PM; after that the gate does not open for anyone.** The venue is on your admit card. SSC advises visiting it a day early, so if you can, check the route on 3 Nov. The timetable puts the full mock on 3 Nov at 5–7 PM, so you practise at the same time of day as the real exam.
 
 ---
 
 ## 2. What past papers show
 
-> **What I could not do:** SSC does not publish topic-wise counts, and I could not open and count 10–15 years of original papers myself. Treat every count below as a rough guide, not a fact.
+### Mechanical: counted from 6 real papers (600 questions)
 
-### Mechanical: coaching-site counts (2022–2024) [Reported]
+Every one of the 100 Mechanical questions in six complete Paper I papers was read and sorted by topic. The question text came from Prepp's paper pages, which are transcribed from SSC response sheets; the 2024 papers match Physics Wallah's separate memory-based lists. No Dec 2025 paper was free online, so the set covers 2019–2024. About 15 of the 600 questions sat on a topic border (for example thermo vs. power plant, or fluids vs. hydraulic machines), so any row can shift by ±2.
 
-From Testbook's "previous year trends" table. It does not name the papers or the method, and the rows add up to fewer than 100. Use it for the ranking, not the exact numbers.
+Papers: **P1** 5 Jun 2024 S2 · **P2** 7 Jun 2024 S2 · **P3** 11 Oct 2023 S2 · **P4** 14 Nov 2022 S2 · **P5** 22 Mar 2021 S1 (2020 exam) · **P6** 27 Sep 2019 S1 (2018 exam)
 
-| Subject | 2024 | 2023 | 2022 |
-|---|---:|---:|---:|
-| Production / Manufacturing | 15 | 13 | 14 |
-| Thermal Engg (Thermo, boilers, turbines) | 15 | 14 | 13 |
-| Fluid Mechanics & Machinery | 13 | 11 | 12 |
-| Strength of Materials | 12 | 10 | 12 |
-| Theory of Machines & Design | 10 | 12 | 11 |
-| Heat Transfer | 7 | 6 | 6 |
-| Refrigeration & AC | 6 | 5 | 7 |
-| IC Engines | 5 | 4 | 5 |
-| Industrial Engg & Management | 3 | 3 | 2 |
+| Topic | P1 | P2 | P3 | P4 | P5 | P6 | Avg |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Fluid Mechanics | 14 | 17 | 23 | 26 | 26 | 25 | **21.8** |
+| Boilers, Turbines, Nozzles, Compressors | 8 | 14 | 11 | 19 | 16 | 19 | **14.5** |
+| Thermodynamics (incl. steam, Rankine, Brayton) | 16 | 12 | 18 | 15 | 11 | 13 | **14.2** |
+| IC Engines (incl. Otto/Diesel/Stirling cycles) | 14 | 11 | 8 | 19 | 13 | 11 | **12.7** |
+| Refrigeration & AC | 12 | 15 | 13 | 3 | 12 | 11 | **11.0** |
+| Hydraulic Machines | 11 | 8 | 10 | 6 | 7 | 7 | **8.2** |
+| Production / Manufacturing | 14 | 12 | 6 | 3 | 2 | 0 | **6.2** |
+| Theory of Machines | 4 | 2 | 2 | 4 | 3 | 3 | 3.0 |
+| Engineering Materials | 1 | 1 | 2 | 0 | 7 | 5 | 2.7 |
+| Engineering Mechanics | 3 | 3 | 3 | 3 | 1 | 2 | 2.5 |
+| Strength of Materials | 3 | 3 | 3 | 1 | 2 | 3 | 2.5 |
+| Machine Design | 0 | 2 | 1 | 0 | 0 | 1 | 0.7 |
+| Heat Transfer | 0 | 0 | 0 | 1 | 0 | 0 | 0.2 |
+| Metrology / Industrial Engg | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| **Theory questions** | 91 | 90 | 82 | 84 | 95 | 87 | **88** |
+| **Numerical questions** | 9 | 10 | 18 | 16 | 5 | 13 | **12** |
 
-The same site gives Engineering Mechanics 8–10 and Materials/Metrology 4–6 per paper. An older 2017 analysis put Fluid Mechanics & Machinery highest, at about 30 of 100.
+**What the counts show**
+- **Thermal subjects** (thermo, IC engines, boilers/turbines/compressors, RAC) are about **52 of 100**. **Fluids + hydraulic machines** are about **30**. Together that is over 80% of the Mechanical marks.
+- **Production** jumped to 12–14 per paper in 2024, after being near zero in 2019–2021. Expect it to stay.
+- SOM, Engineering Mechanics, Theory of Machines and Machine Design together were only about 9 per paper. Heat Transfer and Metrology were almost absent.
+- About **88% are one-line theory or fact** questions; only about 12 per paper are numericals.
+- Coaching-site tables (for example Testbook's "previous year trends") rank SOM and Production much higher. They do not name their papers, and the counts above do not match them, so they have been dropped.
 
-### What the sources agree on
+**Caution for 2026 [Estimate]:** the 2026 syllabus names Machine Design, Materials, Industrial Engg, Metrology and Advanced Manufacturing explicitly. Reports on the Dec 2025 paper said it drew from ToM, Machine Design, SOM and Industrial Engg as well. So the newer papers may be more spread out than 2019–2024. Use the counts to set priorities, but do not drop SOM or Production entirely.
+
+### Other patterns
 
 - **[Reported]** The 2025 Mechanical Paper I (3–4 Dec 2025) drew from ToM, Thermodynamics, Machine Design, SOM, Fluid Mechanics, Heat Transfer, Industrial Engg and Production. It was rated moderate, with some lengthy numericals.
-- **[Estimate]** About 60–70% of Mechanical questions are one-line theory or fact. About 30–40% are numericals, and most need one formula.
 - **[Estimate]** The most repeated formula areas are cycle efficiencies (Carnot, Otto), elastic constants, beam BM/deflection standard cases, Bernoulli/continuity, Reynolds number, Taylor tool life, belt tension ratio and COP.
-- **[Estimate]** Lengthy items to skip on a first pass: gear-train numericals, governor force analysis, Rankine cycles with steam tables, heat-exchanger design, eccentric column loads.
+- **[Estimate]** Lengthy items to skip on a first pass: gear-train numericals, governor force analysis, Rankine cycles that need steam-table lookups, heat-exchanger design, eccentric column loads. The steam table and calculator are on screen, but opening them is slow, so leave these for round 4.
 
 ### Reasoning and GA patterns
 
@@ -68,34 +82,39 @@ The same site gives Engineering Mechanics 8–10 and Materials/Metrology 4–6 p
 
 - For many years: Paper I was 200 Q objective, Paper II a written paper, and final merit was Paper I + Paper II.
 - From about 2023: Paper II became objective CBT (100 Q × 3 marks, −1 per wrong).
-- **[Reported]** 2026: Paper I becomes qualifying only. JE Telecom and IMD Scientific Assistant posts were added. There are about 1,699 tentative vacancies.
+- **[Confirmed]** 2026: Paper I becomes qualifying only. JE Telecom and IMD Scientific Assistant posts were added. The official notice lists **1,748** tentative vacancies (coaching sites quote 1,699).
+- **[Confirmed]** The official 2026 Paper I Mechanical syllabus: Engineering Mechanics, SOM, Theory of Machines, Machine Design, Materials Science, Thermal Engineering, Fluid Mechanics & Hydraulic Machinery, Industrial Engineering, Manufacturing, Metrology & Measurement, Advanced Manufacturing Processes. The level is about diploma standard.
 
 ---
 
 ## 3. Mechanical priority list
 
-### A · Must revise (about 70% of Mechanical marks)
+"Qs/paper" is the average from the 6 counted papers in section 2.
 
-| Topic | Time | Why |
-|---|---|---|
-| Thermodynamics + IC Engines | 1.5 h | Laws, processes, Carnot/Otto/Diesel efficiency, steam basics, SI vs CI facts |
-| Fluid Mechanics | 1.2 h | Properties, pressure, Bernoulli, continuity, venturi/pitot, Reynolds number, pipe losses |
-| Hydraulic Machines | 0.6 h | Pelton/Francis/Kaplan, specific speed, pump facts |
-| Strength of Materials | 1.2 h | Elastic constants, thermal stress, BM and deflection cases, torsion, Euler column, thin cylinders |
-| Production / Manufacturing | 1.2 h | Casting, welding, machining, Taylor's law, grinding, non-traditional machining, forming |
-| Engineering Materials | 0.5 h | Iron-carbon diagram, steels, heat treatment, crystal structures, alloys |
-| Engineering Mechanics | 0.4 h | Friction, projectile, centroid and moment of inertia |
+### A · Must revise (about 85% of Mechanical marks in past papers)
+
+| Topic | Qs/paper | Time | Why |
+|---|---:|---|---|
+| Thermodynamics + IC Engines | 27 | 1.5 h | Laws, processes, Carnot/Otto/Diesel efficiency, steam basics, SI vs CI facts, governing, ignition, lubrication |
+| Fluid Mechanics | 22 | 1.2 h | Properties, pressure, Bernoulli, continuity, venturi/pitot, Reynolds number, pipe losses, centre of pressure, no-slip |
+| Boilers, Nozzles, Steam Turbines, Compressors | 14.5 | 0.6 h | Mountings vs accessories, boiler types, critical pressure ratio, impulse vs reaction, compressor efficiencies. Moved up from B: past papers ask it as often as thermodynamics. |
+| Refrigeration & AC | 11 | 0.5 h | COP, 1 TR, VCR cycle, refrigerant numbering, compressor and evaporator types. Moved up from B. |
+| Hydraulic Machines | 8 | 0.6 h | Pelton/Francis/Kaplan, specific speed, pump facts |
+| Production / Manufacturing | 6 (12–14 in 2024) | 1.2 h | Casting, welding, machining, Taylor's law, grinding, non-traditional machining, forming |
+| Strength of Materials | 2.5 | 0.8 h | Elastic constants, thermal stress, BM and deflection cases, torsion, Euler column, thin cylinders. Few past questions, but the 2025 paper reportedly had more. |
+| Engineering Materials | 2.7 | 0.5 h | Iron-carbon diagram, steels, heat treatment, crystal structures, alloys |
+| Engineering Mechanics | 2.5 | 0.3 h | Friction, projectile, centroid and moment of inertia |
 
 ### B · If time permits (quick facts only)
 
-| Topic | Time | Why |
-|---|---|---|
-| Theory of Machines | 0.6 h | Inversions, belt ratio, gear basics, governors, flywheel, natural frequency |
-| Boilers, Nozzles, Steam Turbines, Compressors | 0.5 h | Mountings vs accessories, boiler types, critical pressure ratio, impulse vs reaction |
-| Refrigeration & AC | 0.3 h | COP, 1 TR, VCR cycle, refrigerant numbering |
-| Heat Transfer | 0.3 h | Fourier, Stefan-Boltzmann, Wien, critical radius, dimensionless numbers |
-| Machine Design | 0.3 h | Theories of failure, FOS, equivalent torque, Soderberg/Goodman |
-| Metrology + Industrial Engg | 0.3 h | Vernier least count, fits, EOQ, PERT, control charts |
+| Topic | Qs/paper | Time | Why |
+|---|---:|---|---|
+| Theory of Machines | 3 | 0.5 h | Inversions, belt ratio, gear basics, governors, flywheel, natural frequency |
+| Machine Design | 0.7 | 0.3 h | Theories of failure, FOS, equivalent torque, Soderberg/Goodman |
+| Heat Transfer | 0.2 | 0.2 h | Fourier, Stefan-Boltzmann, Wien, critical radius, dimensionless numbers |
+| Metrology + Industrial Engg | 0 | 0.2 h | Vernier least count, fits, EOQ, PERT, control charts. Absent in 2019–24 papers, but named in the 2026 syllabus. |
+
+> **If you fall behind:** cut Strength of Materials, Engineering Mechanics and the B list first. Never cut the thermal, fluids or boilers/RAC blocks.
 
 ### C · Skip for now (attempt only if one-line)
 
@@ -111,11 +130,11 @@ The same site gives Engineering Mechanics 8–10 and Materials/Metrology 4–6 p
 
 Assumes you start at 12:00 noon on 2 Nov. If you start later, shift every block, but do not drop the 3 Nov mock or the sleep.
 
-### Sunday 2 Nov · about 8 h of study
+### Monday 2 Nov · about 8 h of study
 
 | Time | Block | What to do |
 |---|---|---|
-| 12:00–12:20 | Set up | Download your admit card from ssc.gov.in. Note your reporting time and centre. Keep one notebook as your **error log**. |
+| 12:00–12:20 | Set up | Admit card already downloaded: Shift III, report 3:45 PM, entry closes 4:45 PM. Print it, and do not write anything on it. Keep one notebook as your **error log**. |
 | 12:20–14:20 | ME-1 · Thermodynamics + IC engines + RAC basics | Read the Thermo and IC topic cards and formula sheets. Do Test 1 Q1–10, then 20 IndiaBIX Thermodynamics questions. Write 10 formulas from memory. |
 | 14:20–15:00 | Break | Lunch + walk |
 | 15:00–17:00 | ME-2 · Fluid mechanics + hydraulic machines | Read the cards and the fluids formula sheet. Finish Test 1, then 15 IndiaBIX Hydraulic Machines questions. Log every wrong answer. |
@@ -127,14 +146,14 @@ Assumes you start at 12:00 noon on 2 Nov. If you start later, shift every block,
 | 21:30–22:00 | Error log | One line per wrong answer: concept + correct formula or fact. |
 | 22:30 | Sleep | 7.5 hours, no phone in bed |
 
-### Monday 3 Nov · about 11 h of study
+### Tuesday 3 Nov · about 11 h of study
 
 | Time | Block | What to do |
 |---|---|---|
-| 06:30–07:00 | Recall test | Write all of Sunday's Category A formulas from memory, then check them. |
+| 06:30–07:00 | Recall test | Write all of Monday's Category A formulas from memory, then check them. |
 | 07:00–09:00 | ME-4 · Production + Materials | Read the cards and formula sheets. Finish Test 2, then 20 IndiaBIX Production questions. |
 | 09:00–09:30 | Break | Breakfast |
-| 09:30–11:00 | ME-5 · Category B quick facts | Read the B cards and formula sheets. Do 15 IndiaBIX Theory of Machines questions. |
+| 09:30–11:00 | ME-5 · Boilers/turbines/compressors + RAC, then B quick facts | Read the Boilers and RAC cards first (they are now Category A; together about 25 questions per past paper), then the B cards. Do 15 IndiaBIX Theory of Machines questions. |
 | 11:00–11:15 | Break | |
 | 11:15–12:15 | GA · Polity, history, geography, economy | Read the rest of the GA sheet. Do Test 4 (20 Q, 10 min). |
 | 12:15–13:00 | Break | Lunch |
@@ -147,10 +166,10 @@ Assumes you start at 12:00 noon on 2 Nov. If you start later, shift every block,
 | 19:00–19:45 | Break | Dinner + walk |
 | 19:45–20:45 | Mock analysis | Label each wrong answer C (concept gap), S (silly) or G (bad guess). List the C topics for tomorrow. If you have more than 8 G's, guess less. |
 | 20:45–21:30 | Formula sheet, final pass | Category A, then B. Read the trap lines a second time. |
-| 21:30–22:00 | Pack and check | Exam-day checklist, bag, route, travel time, reporting time. |
+| 21:30–22:00 | Pack and check | Exam-day checklist, printed admit card, original photo ID, route and travel time. Work back from the 3:45 PM reporting time to set your leaving time. |
 | 22:30 | Sleep | 8 hours. Nothing new after 21:30. |
 
-### Tuesday 4 Nov · exam at 5 PM · about 5 h of study
+### Wednesday 4 Nov · exam at 5 PM (report 3:45 PM) · about 5 h of study
 
 | Time | Block | What to do |
 |---|---|---|
@@ -158,9 +177,9 @@ Assumes you start at 12:00 noon on 2 Nov. If you start later, shift every block,
 | 09:30–10:00 | Break | Breakfast |
 | 10:00–11:30 | Fix weak topics only | Re-read only the cards for your C topics and today's misses. No new topics. |
 | 11:30–12:15 | Reasoning + GA touch-up | 15 questions of your weakest reasoning type. Read the science lists once. |
-| 12:15–13:00 | Break | Lunch, then a 20-minute rest |
+| 12:15–13:00 | Break | Light lunch, then a 20-minute rest. Eat before you leave; you cannot eat inside. |
 | 13:00–13:45 | Last look | Trap lines and error log only. This is your last study block. |
-| 13:45 | **Stop studying** | Light snack about 2 hours before the exam. Leave early enough to arrive before the reporting time, with a traffic margin. The exam ends at 7 PM; plan your ride home. |
+| 13:45 | **Stop studying** | Leave so you reach the venue by **3:45 PM**, with a traffic margin. **Entry closes 4:45 PM.** Allow time for frisking. The exam ends at 7 PM; plan your ride home. |
 
 ---
 
@@ -309,7 +328,7 @@ The practice questions are written in past-paper style. They are not claimed to 
 - A flywheel limits speed changes within a cycle. A governor controls mean speed.
 - ωn = √(k/m). Springs in series: 1/k = 1/k₁ + 1/k₂. In parallel: k₁ + k₂.
 
-### Boilers, Nozzles, Turbines, Compressors [B] · 30 min
+### Boilers, Nozzles, Turbines, Compressors [A] · 35 min
 
 - Fire-tube: Cochran, Lancashire, Cornish, Locomotive. Water-tube: Babcock & Wilcox, Stirling. High-pressure: Lamont, Benson (drumless), Loeffler, Velox.
 - **Mountings** (safety): safety valve, water-level indicator, pressure gauge, fusible plug, stop valve, blow-off cock, feed check valve. **Accessories** (efficiency): economiser, superheater, air preheater, feed pump, injector.
@@ -317,7 +336,7 @@ The practice questions are written in past-paper style. They are not claimed to 
 - De Laval = impulse turbine. Parsons = reaction turbine, 50% reaction. Compounding reduces rotor speed.
 - Isothermal compression needs the least work. Multistage with intercooling: p₂ = √(p₁p₃). Volumetric efficiency falls as clearance and pressure ratio rise.
 
-### Refrigeration & AC [B] · 20 min
+### Refrigeration & AC [A] · 30 min
 
 - 1 TR = 3.5 kW = 210 kJ/min. COP = refrigerating effect / work.
 - VCR cycle: compressor → condenser → expansion valve (isenthalpic) → evaporator.
@@ -449,7 +468,56 @@ Do these first; they are fast and appear in nearly every paper. Leave long puzzl
 
 ## 8. General Awareness quick revision
 
-> **Current affairs:** my knowledge ends mid-2026, so none are listed here. Spend at most 20 minutes on a free May–October 2026 summary in the Testbook or Adda247 app: sports, awards, appointments, schemes.
+### Current affairs 2026 [Reported]
+
+Collected on 2 Nov 2026 from 2026-dated news and exam-prep pages (PIB, All India Radio, Adda247, Drishti, GKToday and others). Items that only one weak source backed were left out. Spend 15–20 minutes here at most; static GK earns more per minute.
+
+**Sports**
+- Men's T20 World Cup 2026: **India** beat New Zealand by 96 runs in the final (Ahmedabad, 8 Mar). India's 3rd title. Player of the Tournament: Sanju Samson. Player of the Final: Jasprit Bumrah.
+- IPL 2026: **RCB** beat Gujarat Titans in the final, their second title in a row. Orange Cap: Vaibhav Sooryavanshi (RR, 776 runs, aged 15, the youngest ever). Purple Cap: Kagiso Rabada (GT, 29 wickets).
+- Women's T20 World Cup 2026: **Australia** beat England at Lord's (5 Jul), their 7th title.
+- FIFA World Cup 2026 (USA, Canada, Mexico): **Spain** beat Argentina 1-0 after extra time. Golden Ball: Rodri. Golden Boot: Mbappé (10 goals). Golden Glove: Unai Simón.
+- Wimbledon 2026: Jannik Sinner (men's, beat Zverev). Linda Nosková (women's, her first major, beat Muchová).
+- Commonwealth Games 2026, Glasgow (23 Jul–2 Aug): India 4th with 39 medals (13 gold). Mirabai Chanu won her third straight CWG gold.
+- Asian Games 2026, Aichi-Nagoya, Japan (19 Sep–4 Oct): India 4th with 85 medals (21 gold); China topped the table. India's men's hockey team beat Malaysia 5-1 in the final to keep the title.
+- Chess Olympiad 2026, Samarkand: Uzbekistan won Open gold, India Open silver. China won women's gold, India women's bronze.
+- Smriti Mandhana was named full-time captain of India's women's white-ball side (Oct).
+
+**Awards**
+- Nobel Peace 2026: Navi Pillay (South Africa). Literature: Anne Carson (Canada). Chemistry: Henri Kagan and Kenso Soai (asymmetric synthesis). Medicine: Karl Deisseroth, Peter Hegemann, Georg Nagel (optogenetics). Economics: Robert E. Hall and Michael Woodford.
+- International Booker 2026: *Taiwan Travelogue* by Yáng Shuāng-zǐ, translated by Lin King, the first winner translated from Mandarin. (The 2026 Booker Prize is announced on 9 Nov, after your exam.)
+- Ramon Magsaysay 2026: Tommy Koh (Singapore), Runa Khan (Bangladesh), Bo Kyi (Myanmar).
+- Padma awards 2026: 131 in all. Padma Vibhushan included Dharmendra and V.S. Achuthanandan (both posthumous) and K.T. Thomas.
+- 72nd National Film Awards: Best Film *Article 370*. Best Actor shared by Mammootty and Kartik Aaryan. Best Actress Yami Gautam.
+
+**Appointments**
+- Chief of Army Staff: Gen **Dhiraj Seth** (from 30 Jun 2026, after Gen Upendra Dwivedi).
+- Chief of the Air Staff: Air Chief Marshal **Ashutosh Dixit**, the 29th (from 31 Oct 2026, after A.P. Singh).
+- Chief Justice of India: **Surya Kant**, the 53rd, until 9 Feb 2027.
+- RBI Governor: **Sanjay Malhotra**. NITI Aayog CEO: Anurag Jain (Jul 2026).
+
+**Economy**
+- RBI MPC, 5–7 Oct 2026: repo rate **raised 25 bps to 5.50%**; stance changed to "calibrated tightening". SDF 5.25%, MSF and Bank Rate 5.75%.
+- Q1 FY27 (Apr–Jun 2026) GDP growth: **7.8%** (NSO).
+- Union Budget 2026-27 (1 Feb): fiscal deficit target about 4.3% of GDP; no change to income-tax rates.
+- Central DA/DR raised from 60% to 63% from 1 Jul 2026.
+
+**Schemes**
+- NSAP renamed **Pradhan Mantri Samajik Sahayata Yojana** and continued for 2026–31.
+- Container Manufacturing Promotion Scheme: ₹10,000 crore (Oct 2026).
+- Khelo India Sports Goods Manufacturing Scheme: ₹1,856.67 crore.
+- UPSC centenary celebrations closed on 1 Oct 2026, with a commemorative coin and stamp.
+
+**Science and space**
+- GSLV-F17 / EOS-05 (4 Sep 2026): India's first imaging satellite for geosynchronous orbit.
+- Gaganyaan G1, the first uncrewed flight carrying the robot **Vyommitra**, is still pending; ISRO aims for end-2026.
+
+**International**
+- India holds the BRICS chair in 2026; the 18th BRICS Summit was set for Bharat Mandapam, New Delhi (12–13 Sep).
+- 26th SCO Summit: Bishkek, Kyrgyzstan (31 Aug–1 Sep), Bishkek Declaration.
+
+**Deaths**
+- Madhav Gadgil (ecologist, Western Ghats report), Jan 2026. Raghu Rai (photographer), Apr 2026.
 
 ### Physics
 - SI units: force N, pressure Pa, energy J, power W, charge C, resistance Ω, capacitance F, inductance H, magnetic flux Wb, flux density T, luminous intensity cd.
@@ -656,9 +724,11 @@ Don't look for full notes now; this file is your notes. Use past-paper PDFs only
 - Target: 150 attempted at 85% accuracy is 127.5 right and 22.5 wrong, giving ≈ **122 marks**.
 - If two options both look right, check the trap line for that topic.
 
-**Skip a question when** it needs steam tables or a chart you don't remember, when 90 seconds have passed without seeing the formula, or when it is a Category C topic and not one line long.
+**Skip a question when** it needs a steam-table lookup (the table is on screen under "Useful Data", but leave those for round 4), when 90 seconds have passed without seeing the formula, or when it is a Category C topic and not one line long.
 
 **Avoiding calculation mistakes**
+- **[Confirmed]** A scientific calculator is on screen for the whole exam. Use it for roots, powers like r^0.4, logs and long multiplications. Clicking it with the mouse is slow, so do simple arithmetic in your head.
+- **[Confirmed]** Rough-work pen and paper are given in the exam lab, and a timer runs on screen.
 - Convert units first: K, m and N (or mm, N and MPa), radians.
 - Estimate the size of the answer first. Options 10 × apart point to a units error; 2 × or 4 × apart point to a ratio error.
 - Use the rough sheet in numbered boxes so you can recheck.
@@ -668,16 +738,25 @@ Don't look for full notes now; this file is your notes. Use past-paper PDFs only
 
 ## 12. Exam-day checklist
 
-- [ ] Printed admit card. Read every instruction on it the night before.
-- [ ] Original photo ID whose name and date of birth match the admit card.
-- [ ] Passport-size photos, if the admit card asks for them.
-- [ ] Leave early enough to arrive before the reporting time; gates close before the start.
-- [ ] No phone, smartwatch, calculator or paper inside.
-- [ ] Simple clothes. A light meal about 2 hours before the exam (around 3 PM).
-- [ ] At the computer: check your name and photo, and learn the question palette colours.
+From your admit card and SSC's general instructions (notice of 21 Jul 2025). [Confirmed]
+
+- [ ] Printed admit card. **Do not write anything on it before the exam**, or you will not be let in. Do not fold or damage the barcode.
+- [ ] One **original** photo ID with the **same date of birth** as the admit card (Aadhaar or e-Aadhaar printout, PAN, voter ID, driving licence, passport, college ID).
+- [ ] Reach by **3:45 PM**. **Entry closes 4:45 PM** and no one is let in after that.
+- [ ] Allowed: a **transparent** water bottle. Not allowed: watch of any kind, phone, Bluetooth/earphones, calculator, pen, paper, books. Leave your bag at home if you can; the centre does not store it.
+- [ ] Avoid rings, bracelets, chains and other jewellery; there is metal-detector and hand frisking.
+- [ ] Face uncovered (no mask). Sit so the webcam sees your full face the whole time; photos are taken during the exam.
+- [ ] No toilet break in a 2-hour exam. Eat and use the toilet before you go in.
+- [ ] After the first login, write the certification statement in your own running handwriting, sign and give your left thumb impression on the admit card, in front of the invigilator. Also write your mother's name there.
+- [ ] At the computer: check your name and photo, find the **calculator icon** and the **"Useful Data" steam table**, and learn the question palette colours.
 - [ ] In the last 2 minutes, check that nothing is "marked" without an answer you mean to give. Check how your shift's on-screen instructions treat "marked for review" answers.
+- [ ] Get the invigilator to sign your admit card before you leave, and keep a copy of it.
 - [ ] Plan your ride home; the exam ends at 7 PM.
 
 ---
 
-**Sources:** [Testbook 2026 notification](https://testbook.com/news/ssc-je-2026-notification-out/) · [PracticeMock](https://www.practicemock.com/blog/ssc-je/) · [Adda247 major changes](https://www.adda247.com/engineering-jobs/ssc-je-2026-major-changes/) · [Adda247 exam dates](https://www.adda247.com/engineering-jobs/ssc-je-exam-date-2026/) · [Testbook weightage](https://testbook.com/ssc-je/mechanical-subject-wise-weightage) · [PW 2025 review](https://www.pw.live/ae-je/exams/ssc-je-cbt-1-mechanical-exam-review-2025). Check anything that matters against https://ssc.gov.in.
+**Official sources:** [SSC JE 2026 notice](https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/notice_16092026.pdf) · [Revised dates, 26 Oct 2026](https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Important%20notice_revised_dated_26_10_2026.pdf) · [City and admit card notice, 23 Oct 2026](https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/JE_2026_City_Live_Notice_23102026.pdf) · [General instructions for candidates](https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/ac_general_instructions_21072025.pdf)
+
+**Past papers counted (Prepp):** [5 Jun 2024 S2](https://prepp.in/paper/ssc-je-me-paper-1-question-paper-05-Jun-2024-shift-2-68ff9a8ce56bc9cb4331b125) · [7 Jun 2024 S2](https://prepp.in/paper/ssc-je-me-paper-1-question-paper-07-Jun-2024-shift-2-690187e177bd992be233c4f1) · [11 Oct 2023 S2](https://prepp.in/paper/ssc-je-me-paper-1-question-paper-11-oct-2023-shift-2-6634c0510368feeaa5a8e719) · [14 Nov 2022 S2](https://prepp.in/paper/ssc-je-me-paper-1-question-paper-14-nov-2022-shift-2-66126c656c11d964bb70ac3d) · [22 Mar 2021 S1](https://prepp.in/paper/ssc-je-me-paper-1-question-paper-22-mar-2021-shift-1-645d4a174206be03cfa48596) · [27 Sep 2019 S1](https://prepp.in/paper/ssc-je-me-paper-1-question-paper-27-sep-2019-shift-1-6634c0c50368feeaa5a8f8ea). These pages also work as free full past papers for the PYQ practice blocks.
+
+**Other sources:** [Testbook 2026 notification](https://testbook.com/news/ssc-je-2026-notification-out/) · [PracticeMock](https://www.practicemock.com/blog/ssc-je/) · [Adda247 major changes](https://www.adda247.com/engineering-jobs/ssc-je-2026-major-changes/) · [Adda247 exam dates](https://www.adda247.com/engineering-jobs/ssc-je-exam-date-2026/) · [PW 2025 review](https://www.pw.live/ae-je/exams/ssc-je-cbt-1-mechanical-exam-review-2025). Check anything that matters against https://ssc.gov.in.

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSC JE Cheatsheet</title>
+<style>
+/* Two A4 pages for the final read. Same palette as index.html, sized for print. */
+:root{
+  --bg:#ffffff; --ink:#15212b; --muted:#566573; --line:#d3dae0;
+  --accent:#1d5d8c; --accent-soft:#e1ecf5; --must:#1f7a4d; --bad:#b3362c; --bad-soft:#f8e3e1;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",Calibri,system-ui,sans-serif;
+}
+@page{size:A4;margin:7mm}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body)}
+body{font-size:7.75pt;line-height:1.28;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:196mm;height:282mm;margin:0 auto;overflow:hidden;break-after:page;display:flex;flex-direction:column}
+.page:last-child{break-after:auto}
+@media screen{
+  body{background:#e4e8eb;padding:16px 0}
+  .page{background:#fff;padding:7mm;width:210mm;height:297mm;margin:0 auto 16px;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+  @media (max-width:820px){.page{width:auto;height:auto;margin:0 16px 16px}}
+}
+header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:1.2mm;margin-bottom:1.6mm;gap:4mm}
+h1{font-family:var(--f-display);font-size:15pt;margin:0;letter-spacing:.01em}
+.hd{font-size:7.6pt;color:var(--muted);text-align:right}
+.hd b{color:var(--bad)}
+.cols{column-count:3;column-gap:3.4mm;column-fill:balance}
+section{break-inside:auto;margin:0 0 1.6mm}
+h2{font-family:var(--f-display);font-size:9.6pt;margin:0 0 .6mm;padding:.3mm 1.2mm;background:var(--accent-soft);color:var(--accent);border-radius:1mm;break-after:avoid}
+h2 .q{float:right;font-weight:600;color:var(--must)}
+ul{margin:0;padding-left:3mm}
+li{margin:0 0 .45mm}
+li::marker{color:var(--muted)}
+.t{color:var(--bad);font-weight:600}
+.f{font-family:Consolas,"Courier New",monospace;font-size:7pt}
+.box{border:1.2px solid var(--bad);background:var(--bad-soft);border-radius:1.2mm;padding:1mm 1.6mm;margin:0 0 1.6mm;break-inside:avoid}
+.box h2{background:none;color:var(--bad);padding:0}
+table{border-collapse:collapse;width:100%;font-size:7pt}
+td,th{border-bottom:1px solid var(--line);padding:.3mm .8mm;text-align:left;vertical-align:top}
+footer{font-size:6.4pt;color:var(--muted);border-top:1px solid var(--line);padding-top:.8mm;margin-top:1mm}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 · MECHANICAL -->
+<div class="page">
+<header>
+  <h1>SSC JE 2026 · ME Paper I · Final read</h1>
+  <div class="hd">Page 1 · Mechanical (100 Q) · Q = avg questions per paper, 6 papers 2019–24<br><b>Read before you leave. No paper is allowed inside.</b></div>
+</header>
+<div class="cols">
+
+<section>
+<h2>Thermodynamics <span class="q">≈14 Q</span></h2>
+<ul>
+<li><span class="f">Q = ΔU + W</span>; work <i>by</i> gas is +. Isothermal: ΔU = 0, Q = W. Throttling: <b>h const</b>. Free expansion: Q = W = ΔU = 0.</li>
+<li>Zeroth law → temperature. Kelvin-Planck: no engine turns all heat into work (PMM-2). Clausius: heat won't go cold → hot by itself.</li>
+<li><span class="f">η<sub>Carnot</sub> = 1 − T2/T1</span> · <span class="f">COP<sub>R</sub> = T2/(T1−T2)</span> · <span class="f">COP<sub>HP</sub> = COP<sub>R</sub> + 1</span>. <span class="t">⚠ Kelvin only.</span> 527/27 °C → 62.5%.</li>
+<li>n = 0 isobaric · 1 isothermal · γ adiabatic · ∞ isochoric. Polytropic <span class="f">W = (p1V1−p2V2)/(n−1)</span>; isothermal <span class="f">pV ln(V2/V1)</span>.</li>
+<li>Air: <span class="f">R = 0.287 kJ/kg·K, γ = 1.4</span>; <span class="f">cp − cv = R</span>. Open system <span class="f">h = u + pv</span> (pv = flow work).</li>
+<li>Steam: triple pt 0.01 °C; critical 374.15 °C, 221.2 bar; <span class="f">h = hf + x·hfg</span>; hfg @100 °C = 2257 kJ/kg. Mollier = h–s. Throttling calorimeter → x.</li>
+<li>Rankine η ↑ with higher boiler p, superheat, lower condenser p, reheat, regeneration. <span class="f">η<sub>Brayton</sub> = 1 − 1/rp<sup>(γ−1)/γ</sup></span>.</li>
+<li>∮δQ/T ≤ 0 (= 0 reversible). Reversible adiabatic = isentropic. Real processes: entropy ↑.</li>
+<li>Steady flow: <span class="f">V2 = √(2Δh)</span> (Δh in J/kg) = 44.72√Δh (kJ/kg).</li>
+</ul>
+</section>
+
+<section>
+<h2>IC Engines <span class="q">≈13 Q</span></h2>
+<ul>
+<li>SI: Otto, spark plug, r 6–10, <b>quantity</b> governing (throttle). CI: Diesel, injector, r 14–22, <b>quality</b> governing. Hit-and-miss: whole cycles skipped.</li>
+<li>4-stroke: 1 power stroke / 2 rev (n = N/2). 2-stroke: every rev, needs scavenging, mist (petroil) lubrication.</li>
+<li>Octane (iso-octane vs n-heptane) = petrol anti-knock. Cetane (cetane vs α-methylnaphthalene) = diesel ignition quality.</li>
+<li>SI knock at <b>end</b> of combustion; CI knock at <b>start</b> (ignition delay). What cures one worsens the other.</li>
+<li>Firing order <b>1-3-4-2</b>. Morse test → IP of multi-cylinder. Willan's line → FP of CI. Rope brake <span class="f">BP = π(D+d)N(W−S)/60</span>.</li>
+<li><span class="f">η<sub>Otto</sub> = 1 − 1/r<sup>γ−1</sup></span> (r 8 → 56.5%). <span class="f">r = (Vs+Vc)/Vc</span>. Same r: Otto &gt; Dual &gt; Diesel. Same p<sub>max</sub>: Diesel &gt; Dual &gt; Otto.</li>
+<li><span class="f">IP = p<sub>m</sub>LAnk/60</span>, <span class="f">BP = 2πNT/60</span>, η<sub>mech</sub> = BP/IP, FP = IP − BP. Stirling: 2 isothermal + 2 isochoric (heat rejected at const T).</li>
+<li>Battery ignition: spark voltage falls as speed rises. Magneto: rises with speed.</li>
+</ul>
+</section>
+
+<section>
+<h2>Boilers · Turbines · Nozzles · Compressors <span class="q">≈14.5 Q</span></h2>
+<ul>
+<li>Fire-tube: Cochran, Lancashire, Cornish, Locomotive. Water-tube: Babcock &amp; Wilcox, Stirling. High-pressure: Lamont, <b>Benson (drumless)</b>, Loeffler, Velox.</li>
+<li><b>Mountings</b> (safety): safety valve, water-level indicator, pressure gauge, fusible plug, stop valve, blow-off cock, feed check valve.</li>
+<li><b>Accessories</b> (efficiency): economiser (heats feed water), <b>superheater</b> (steam above saturation), air preheater, feed pump, injector, steam trap (drains condensate).</li>
+<li>Critical pressure ratio: air <b>0.528</b> · superheated steam <b>0.546</b> · saturated steam <b>0.577</b>.</li>
+<li>De Laval = impulse (pressure drops in nozzles only). Parsons = reaction, 50% degree. Compounding cuts rotor speed.</li>
+<li>Compressor: isothermal = least work. Perfect intercooling: <span class="f">p2 = √(p1p3)</span>. <span class="f">η<sub>vol</sub> = 1 + C − C(p2/p1)<sup>1/n</sup></span>, falls as clearance or pressure ratio rises. Surging: centrifugal at low flow.</li>
+</ul>
+</section>
+
+<section>
+<h2>Refrigeration &amp; AC <span class="q">≈11 Q</span></h2>
+<ul>
+<li><b>1 TR = 3.5 kW = 210 kJ/min</b>. COP = refrigerating effect / work (5 TR on 5 kW → 3.5).</li>
+<li>VCR: compressor (isentropic) → condenser → expansion valve (<b>isenthalpic</b>) → evaporator.</li>
+<li>Halocarbons: R-number + 90 → C,H,F: R-12 CCl₂F₂ · R-22 CHClF₂ · R-134a C₂H₂F₄. Inorganic R-7xx = 700 + molar mass: NH₃ <b>R-717</b>, water R-718, CO₂ <b>R-744</b>, SO₂ <b>R-764</b>.</li>
+<li>Bell-Coleman = air cycle (aircraft). Absorption: NH₃–water, LiBr–water (water is the refrigerant).</li>
+<li>Hermetic: motor + compressor in one welded shell. Semi-hermetic: bolted cover.</li>
+<li>Saturated air: DBT = WBT = DPT. Sensible heating/cooling: ω constant.</li>
+</ul>
+</section>
+
+<section>
+<h2>Fluid Mechanics <span class="q">≈22 Q</span></h2>
+<ul>
+<li><span class="f">τ = μ du/dy</span>, <span class="f">ν = μ/ρ</span>. 1 poise = 0.1 Pa·s, 1 stoke = 10⁻⁴ m²/s. Liquid μ falls with T; gas μ rises.</li>
+<li><span class="f">p = ρgh</span> (5 m water = 49.05 kPa). Absolute = gauge + atm. Gauge = above atm; vacuum = below. 1 atm = 101.325 kPa = 10.33 m water = 760 mm Hg.</li>
+<li>Piezometer: no gas or negative p. U-tube: yes. Inverted U: small differences. Bourdon: gauge pressure.</li>
+<li>Centre of pressure <b>below</b> centroid: <span class="f">h<sub>cp</sub> = x̄ + I<sub>G</sub>/(A x̄)</span>; does not depend on liquid density. Floating body stable if GM &gt; 0.</li>
+<li>Δp: drop 4σ/d · bubble 8σ/d · jet 2σ/d. Capillary <span class="f">h = 4σcosθ/ρgd</span>; mercury falls.</li>
+<li><span class="f">A1V1 = A2V2</span> (half d → 4 × V). Bernoulli: steady, incompressible, non-viscous, along a streamline. TEL is V²/2g above HGL.</li>
+<li>Venturi Cd 0.95–0.98 · orifice 0.6–0.65 · pitot <span class="f">V = √(2gh)</span>. Hg–water manometer <span class="f">h = 12.6x</span>.</li>
+<li><b>Re &lt; 2000 laminar, &gt; 4000 turbulent.</b> Laminar pipe: <span class="f">f = 64/Re</span>, V<sub>max</sub> = 2V<sub>avg</sub>, velocity parabolic, shear stress <b>linear</b> (0 at centre).</li>
+<li><span class="f">h<sub>f</sub> = fLV²/2gD</span>. Losses: sudden expansion (V1−V2)²/2g · exit V²/2g · entry 0.5V²/2g. Max power when h<sub>f</sub> = H/3.</li>
+<li><b>No-slip:</b> any real (viscous) fluid has zero velocity relative to a fixed wall.</li>
+<li>Rectangular notch Q ∝ H<sup>3/2</sup>; V-notch Q ∝ H<sup>5/2</sup>.</li>
+</ul>
+</section>
+
+<section>
+<h2>Hydraulic Machines <span class="q">≈8 Q</span></h2>
+<ul>
+<li><b>Pelton</b>: impulse, high head, low Ns, tangential; best bucket speed u = V/2. <b>Francis</b>: reaction, medium head, radial/mixed. <b>Kaplan</b>: reaction, low head, high discharge, axial, adjustable blades. Draft tube: reaction only.</li>
+<li>Ns: turbine <span class="f">N√P/H<sup>5/4</sup></span> · pump <span class="f">N√Q/H<sup>3/4</sup></span>.</li>
+<li>Centrifugal pump: priming, backward-curved vanes, NPSHa &gt; NPSHr (no cavitation). Series → heads add; parallel → discharges add. <span class="f">Q ∝ N, H ∝ N², P ∝ N³</span>. Double volute balances radial thrust.</li>
+<li>Reciprocating pump: air vessel smooths flow; negative slip = actual &gt; theoretical.</li>
+</ul>
+</section>
+
+<section>
+<h2>Production <span class="q">≈6 · 12–14 in 2024</span></h2>
+<ul>
+<li>Allowances: shrinkage, draft, machining, distortion, <b>shake (only negative)</b>. Riser freezes last; Chvorinov <span class="f">t ∝ (V/A)²</span>.</li>
+<li>Investment = lost wax (wax pattern + ceramic shell). Die / permanent mould = metal mould, non-ferrous. Centrifugal = pipes.</li>
+<li>Defects: blow holes (gas) · cold shut, misrun (low fluidity) · hot tear (restrained contraction).</li>
+<li>Flame: neutral O₂:C₂H₂ = 1:1, ≈3200 °C · oxidising → brass, bronze · carburising → high-C steel.</li>
+<li>TIG: non-consumable W. MIG: consumable wire. Arc welding: electrode is consumed. Spot/seam = resistance. Thermit = rails.</li>
+<li>Brazing &gt; 450 °C, soldering below; filler drawn in by <b>capillary action</b>; base metal not melted.</li>
+<li><span class="f">V = πDN/1000</span> m/min (D 25 mm, V 15.7 → 200 rpm). Taylor <span class="f">VTⁿ = C</span>: n HSS 0.1 · carbide 0.25 · ceramic 0.5.</li>
+<li>Chips: continuous (ductile, high speed) · discontinuous (brittle) · BUE (ductile, low speed). Merchant <span class="f">φ = 45° + α/2 − β/2</span>.</li>
+<li>Grinding: Al₂O₃ → steel; SiC → cast iron, non-ferrous. Order: abrasive, grain, grade, structure, bond.</li>
+<li>EDM: conductive + dielectric · ECM: Faraday · USM: hard brittle · EBM: vacuum · LBM: any. Down = climb milling. Shaper: quick return.</li>
+<li>Punching: punch = hole size, clearance on die. Blanking: die = blank size, clearance on punch. <span class="f">F = L·t·τ</span>. Hot work above recrystallisation.</li>
+</ul>
+</section>
+
+<section>
+<h2>Materials · SOM · EM · ToM <span class="q">≈11 Q</span></h2>
+<ul>
+<li>Fe–C: eutectoid <b>0.8% C, 727 °C</b> (pearlite); eutectic <b>4.3% C, 1147 °C</b> (ledeburite). Steel ≤ 2% C; low-C &lt; 0.3%.</li>
+<li>Anneal (furnace cool) softens · normalise (air) refines · harden (quench) → martensite · temper cuts brittleness.</li>
+<li>BCC (α-Fe, Cr, W, Mo) APF 0.68, 2 atoms · FCC (γ-Fe, Al, Cu, Ni) 0.74, 4 · HCP (Zn, Mg, Ti) 0.74, 6.</li>
+<li>Brass Cu+Zn · bronze Cu+Sn · Invar Fe+36% Ni · SS 18-8 (Cr-Ni) · HSS 18-4-1 (W-Cr-V).</li>
+<li><span class="f">E = 2G(1+μ) = 3K(1−2μ)</span>, μ ≤ 0.5. Sudden load: 2P/A. Thermal <span class="f">σ = EαΔT</span> (free bar: 0).</li>
+<li>BM max: SSB centre WL/4 · SSB UDL wL²/8 · cantilever WL, wL²/2. δ: WL³/48EI · 5wL⁴/384EI · WL³/3EI · wL⁴/8EI.</li>
+<li><span class="f">T/J = τ/r = Gθ/L</span>, J = πd⁴/32, torsional rigidity GJ, <span class="f">P = 2πNT/60</span>. Euler Le: H-H L · F-F L/2 · F-free 2L · F-H L/√2. Hoop pd/2t = 2 × long.</li>
+<li>Angle of repose = friction angle, tan φ = μ. Range max at 45°. Sphere CG at its centre.</li>
+<li>Belt <span class="f">T1/T2 = e<sup>μθ</sup></span>; Tc = Tmax/3. Grashof s + l ≤ p + q. Whitworth = single slider-crank. Stiffer Hartnell spring → less sensitive. Isochronous = zero speed range.</li>
+<li>Failure: ductile → von Mises (best) or Tresca; brittle → max principal stress (Rankine). Soderberg most conservative.</li>
+</ul>
+</section>
+
+</div>
+<footer>Calculator and steam table are on screen (calculator icon left of your photo; steam table under "Useful Data"). Skip anything that needs a table lookup until round 4.</footer>
+</div>
+
+<!-- PAGE 2 · REASONING, GA, EXAM DAY -->
+<div class="page">
+<header>
+  <h1>Reasoning · GA · Current affairs · Exam day</h1>
+  <div class="hd">Page 2 · Wed 4 Nov · Shift III 5–7 PM<br><b>Report 3:45 PM · Gate closes 4:45 PM</b></div>
+</header>
+<div class="cols">
+
+<div class="box">
+<h2>Exam day</h2>
+<ul>
+<li>Take: printed admit card (<b>write nothing on it</b> before the exam), <b>original</b> photo ID with the <b>same DOB</b>, transparent water bottle.</li>
+<li>Not allowed: any watch, phone, earphones, calculator, pen, paper. No jewellery. No mask. No toilet break.</li>
+<li>Inside: write the certification statement, sign, left thumb impression, mother's name. Find the calculator icon and "Useful Data" steam table. Get the invigilator to sign before leaving.</li>
+<li>Qualify: OBC 25% = <b>50/200</b>. Target <b>120+ net</b> for Paper II shortlisting.</li>
+</ul>
+</div>
+
+<section>
+<h2>120-minute plan</h2>
+<table>
+<tr><th>1</th><td>GA</td><td>10 min</td><td>Only instant answers, ≤ 15 s each</td></tr>
+<tr><th>2</th><td>Mechanical</td><td>55 min</td><td>Theory + one-step; mark anything &gt; 90 s</td></tr>
+<tr><th>3</th><td>Reasoning</td><td>35 min</td><td>Series, coding, ranking, clock first; puzzles last</td></tr>
+<tr><th>4</th><td>Marked</td><td>20 min</td><td>ME numericals, then puzzles</td></tr>
+</table>
+<ul>
+<li>−0.25 per wrong. Blind guess +0.06 · one option out +0.17 · two out +0.38. <b>Guess only after ruling one out</b>; ≤ 10 blind guesses.</li>
+<li>Units first (K, N-mm-MPa, radians). Options 10 × apart → units error; 2 × or 4 × → ratio error. Re-read: radius or diameter? gauge or absolute?</li>
+<li>Last 2 min: nothing "marked" without the answer you mean.</li>
+</ul>
+</section>
+
+<section>
+<h2>Reasoning shortcuts</h2>
+<ul>
+<li>Series: differences → 2nd differences → ×/÷ → squares/cubes ± → alternate terms. 2, 6, 12, 20, 30, <b>42</b>.</li>
+<li>A=1 … Z=26; EJOTY = 5,10,15,20,25. Opposite letter = 27 − n.</li>
+<li>Coding: find the shift (+1, −1, reverse, opposite). CAT → DBU so DOG → <b>EPH</b>.</li>
+<li>Symbol swap: rewrite first, then BODMAS.</li>
+<li>Ranking: total = left + right − 1 (12th + 18th → 29).</li>
+<li>Direction: draw it; distance √(x² + y²). Morning shadow → west; evening → east.</li>
+<li>Blood relation: draw the tree.</li>
+<li>Clock: <span class="f">θ = |30H − 5.5M|</span> (3:30 → 75°). Hands overlap 22 times a day.</li>
+<li>Calendar: normal year +1 day, leap +2. Century leap only if ÷ 400.</li>
+<li>Syllogism: smallest Venn. "All A are B" → "Some B are A" always.</li>
+<li>Mirror: left ↔ right. Water: top ↔ bottom. Standard die: opposite faces sum to 7.</li>
+<li>Missing number: row sum → row product → (a × b) + c.</li>
+</ul>
+</section>
+
+<section>
+<h2>Science</h2>
+<ul>
+<li>Units: pressure Pa · energy J · power W · charge C · flux Wb · flux density T · capacitance F · inductance H · luminous intensity cd.</li>
+<li>Light 3 × 10⁸ m/s; sound ≈ 343 m/s in air, fastest in solids, none in vacuum. Escape velocity 11.2 km/s.</li>
+<li>Myopia → concave lens; hypermetropia → convex. Blue sky: scattering. Diamond sparkle: TIR.</li>
+<li>1 kWh = 3.6 × 10⁶ J · 1 HP = 746 W · −40 °C = −40 °F.</li>
+<li>Hygrometer humidity · lactometer milk · hydrometer density · anemometer wind · sphygmomanometer BP · pyrometer high T.</li>
+<li>Acids: vinegar acetic · lemon citric · curd lactic · ant formic · tamarind tartaric · tomato oxalic.</li>
+<li>Baking soda NaHCO₃ · washing soda Na₂CO₃·10H₂O · bleaching powder CaOCl₂ · PoP CaSO₄·½H₂O · gypsum CaSO₄·2H₂O · laughing gas N₂O.</li>
+<li>Air 78% N₂, 21% O₂. Crust O &gt; Si &gt; Al. Liquid metal Hg; liquid non-metal Br. Galvanising = Zn.</li>
+<li>Ores: bauxite Al · haematite Fe · galena Pb · cinnabar Hg.</li>
+<li>Vitamins: A night blindness · B1 beriberi · B3 pellagra · B12 pernicious anaemia · C scurvy · D rickets · K clotting.</li>
+<li>O universal donor, AB universal recipient. RBC life 120 days. Largest gland liver; smallest bone stapes; 46 chromosomes.</li>
+<li>Malaria: Plasmodium via female Anopheles. Viral: AIDS, polio, measles, dengue, rabies. Bacterial: TB, typhoid, cholera, tetanus.</li>
+</ul>
+</section>
+
+<section>
+<h2>Polity · History · Geography · Economy</h2>
+<ul>
+<li>Constitution adopted 26 Nov 1949, in force 26 Jan 1950. 42nd Amd (1976): socialist, secular, integrity; Fundamental Duties (51A).</li>
+<li>FR Part III, Art 12–35: 14 equality · 17 untouchability · 19 freedoms · 21 life · 21A education (86th) · 32 remedies. DPSP Part IV (Ireland).</li>
+<li>President 52 · impeachment 61 · VP 63 (RS chairman) · PM 75 · AG 76 · money bill 110 · budget 112 · SC 124 · CAG 148 · EC 324.</li>
+<li>Emergency: national 352 · President's rule 356 · financial 360. Amendment 368.</li>
+<li>Panipat 1526, 1556, 1761 · Plassey 1757 · Buxar 1764 · Revolt 1857 Meerut · INC 1885 (Hume; first president W.C. Bonnerjee).</li>
+<li>Bengal partition 1905 · Jallianwala 13 Apr 1919 · Non-Cooperation 1920 · Chauri Chaura 1922 · Dandi 1930 · Quit India 1942.</li>
+<li>IST 82.5° E (Mirzapur). Largest state Rajasthan; most populous UP; smallest Goa. Tropic of Cancer: 8 states. Palk Strait: India–Sri Lanka.</li>
+<li>Corbett first NP (1936) · Kaziranga rhino · Gir lion · Sundarbans tiger.</li>
+<li>RBI 1935, nationalised 1949. CPI target 4% ± 2%. NITI Aayog 1 Jan 2015. GST 1 Jul 2017. SEBI statutory 1992. NABARD 1982.</li>
+</ul>
+</section>
+
+<section>
+<h2>Current affairs 2026</h2>
+<ul>
+<li>Men's T20 WC: <b>India</b> beat NZ (Ahmedabad, 8 Mar), 3rd title. PoT Sanju Samson; final Bumrah.</li>
+<li>IPL: <b>RCB</b> (2nd in a row). Orange Cap Vaibhav Sooryavanshi (15, youngest); Purple Cap Rabada.</li>
+<li>Women's T20 WC: Australia (beat England, Lord's), 7th title.</li>
+<li>FIFA WC: <b>Spain</b> 1-0 Argentina (aet). Golden Ball Rodri, Boot Mbappé, Glove Unai Simón.</li>
+<li>Wimbledon: Sinner; Linda Nosková (first major).</li>
+<li>CWG Glasgow: India 4th, 39 medals (13 gold); Mirabai Chanu 3rd straight gold.</li>
+<li>Asian Games Aichi-Nagoya: India 4th, 85 medals (21 gold); men's hockey gold (5-1 Malaysia).</li>
+<li>Chess Olympiad Samarkand: India Open silver, women's bronze.</li>
+<li>Nobel: Peace Navi Pillay · Literature Anne Carson · Chemistry Kagan &amp; Soai · Medicine Deisseroth, Hegemann, Nagel (optogenetics) · Economics Hall &amp; Woodford.</li>
+<li>Intl Booker: <i>Taiwan Travelogue</i> (Yáng Shuāng-zǐ, tr. Lin King).</li>
+<li>Magsaysay: Tommy Koh, Runa Khan, Bo Kyi. Film awards: <i>Article 370</i>; Mammootty &amp; Kartik Aaryan; Yami Gautam.</li>
+<li>Army chief Gen <b>Dhiraj Seth</b> · Air chief ACM <b>Ashutosh Dixit</b> (29th) · CJI <b>Surya Kant</b> (53rd) · RBI <b>Sanjay Malhotra</b> · NITI CEO Anurag Jain.</li>
+<li>Repo <b>5.50%</b> (+25 bps, Oct). Q1 FY27 GDP 7.8%. DA 63%.</li>
+<li>NSAP → PM Samajik Sahayata Yojana. EOS-05 (GSLV-F17): first imaging satellite for GEO. Gaganyaan G1 (Vyommitra) pending.</li>
+<li>BRICS chair India 2026 (summit New Delhi). SCO summit Bishkek.</li>
+</ul>
+</section>
+
+</div>
+<footer>From ssc-je-48h-plan.md. Rules: SSC notice of 2 Sep 2026 and general instructions of 21 Jul 2025. Current affairs: news and exam-prep sites, collected 2 Nov 2026.</footer>
+</div>
+
+</body>
+</html>
